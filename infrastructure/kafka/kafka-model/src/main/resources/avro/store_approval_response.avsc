@@ -1,0 +1,55 @@
+{
+    "namespace": "com.fmattaperdomo.kafka.order.avro.model",
+    "type": "record",
+    "name": "StoreApprovalResponseAvroModel",
+    "fields": [
+        {
+            "name": "id",
+            "type": {
+                "type": "string"
+            }
+        },
+        {
+            "name": "sagaId",
+            "type": {
+                "type": "string"
+            }
+        },
+        {
+            "name": "storeId",
+            "type": {
+                "type": "string"
+            }
+        },
+        {
+            "name": "orderId",
+            "type": {
+                "type": "string"
+            }
+        },
+        {
+            "name": "createdAt",
+            "type": {
+                "type": "long",
+                "logicalType": "timestamp-millis"
+            }
+        },
+        {
+            "name": "orderApprovalStatus",
+            "type": {
+                  "type": "enum",
+                  "name": "OrderApprovalStatus",
+                  "symbols": ["APPROVED", "REJECTED"]
+               }
+        },
+        {
+            "name": "failureMessages",
+            "type": {
+                "type": "array",
+                "items":{
+                  "type":"string"
+               }
+            }
+        }
+    ]
+}
