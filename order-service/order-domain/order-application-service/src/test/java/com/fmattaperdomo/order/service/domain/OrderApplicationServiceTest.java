@@ -180,14 +180,35 @@ public class OrderApplicationServiceTest {
                  */
                 .build();
 
+<<<<<<< HEAD
 /*
+=======
+        /*
+>>>>>>> publish-event-option-one
         Customer customer = new Customer(
                                 new CustomerId(CUSTOMER_ID),
                                 new Identification(ADDRESS_ID,TypeIdentification.CEDULA,"123456789"),
                                 "FirstName 1","LastName 1","correo@correo.com","12345", UserRole.CUSTOMER,
                                 new Address(ADDRESS_ID, "Calle 1","Bogotá","Bogotá","Colombia","111111")
                             );
+<<<<<<< HEAD
 */
+=======
+        */
+        Customer customer = Customer.builder()
+                .customerId (new CustomerId(CUSTOMER_ID))
+                .customerDocument(new Identification(ADDRESS_ID,TypeIdentification.CEDULA,"123456789"))
+                .firstName("FirstName 1")
+                .lastName("LastName 1")
+                .email("correo@correo.com")
+                .phone("12345")
+                .userRole(UserRole.CUSTOMER)
+                .customerAddress(new Address(ADDRESS_ID, "Calle 1","Bogotá","Bogotá","Colombia","111111"))
+                .build();
+
+
+
+>>>>>>> publish-event-option-one
         Store storeResponse = Store.builder()
                 .storeId(new StoreId(createOrderCommand.getStoreId()))
                 .name("Store # 1")

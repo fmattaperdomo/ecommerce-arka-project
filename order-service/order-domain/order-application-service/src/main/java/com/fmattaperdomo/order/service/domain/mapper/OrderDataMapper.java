@@ -96,16 +96,18 @@ public class OrderDataMapper {
     }
 
     public Customer customerModelToCustomer(CustomerModel customerModel) {
-        return new Customer(new CustomerId(UUID.fromString(customerModel.getId())),
-                customerModel.getIdentification(),
-                customerModel.getFirstName(),
-                customerModel.getLastName(),
-                customerModel.getEmail(),
-                customerModel.getPhone(),
-                customerModel.getRole(),
-                customerModel.getAddress()
+        Customer.builder()
+                .customerId(new CustomerId(UUID.fromString(customerModel.getId())))
+                .customerDocument(customerModel.getCustomerDocument())
+                .firstName (customerModel.getFirstName())
+                .lastName(customerModel.getLastName())
+                .email(customerModel.getEmail())
+                .phone(customerModel.getPhone())
+                .userRole(customerModel.getUserRole())
+                .customerAddress(customerModel.getCustomerAddress())
+                .build();
 
-                );
+        return new Customer(Customer.builder());
     }
 
     private List<OrderItem> orderItemsToOrderItemEntities(
