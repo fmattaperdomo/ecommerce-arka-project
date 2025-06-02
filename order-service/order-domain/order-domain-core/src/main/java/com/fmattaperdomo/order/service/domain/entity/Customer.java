@@ -17,7 +17,7 @@ public class Customer extends AggregateRoot<CustomerId> {
     private ZonedDateTime createdAt;
     private ZonedDateTime updatedAt;
 
-    private Customer(Builder builder) {
+    public Customer(Builder builder) {
         super.setId(builder.customerId);
         customerDocument = builder.customerDocument;
         firstName = builder.firstName;
@@ -26,8 +26,8 @@ public class Customer extends AggregateRoot<CustomerId> {
         phone = builder.phone;
         userRole = builder.userRole;
         customerAddress = builder.customerAddress;
-        createdAt = builder.createdAt;
-        updatedAt = builder.updatedAt;
+        createdAt = ZonedDateTime.now();
+        updatedAt = ZonedDateTime.now();
     }
 
     public static Builder builder() {
@@ -82,7 +82,7 @@ public class Customer extends AggregateRoot<CustomerId> {
         private ZonedDateTime createdAt;
         private ZonedDateTime updatedAt;
 
-        private Builder() {
+        public Builder() {
         }
 
         public Builder customerId(CustomerId val) {

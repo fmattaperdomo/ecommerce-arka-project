@@ -12,13 +12,12 @@ import lombok.Getter;
 @AllArgsConstructor
 public class CustomerModel {
     private String id;
-    private Identification identification;
+    private Identification customerDocument;
     private String firstName;
     private String lastName;
     private String email;
     private String phone;
-    private Address address;
-    private UserRole role;
-
+    private Address customerAddress;
+    private UserRole userRole;
 }
 

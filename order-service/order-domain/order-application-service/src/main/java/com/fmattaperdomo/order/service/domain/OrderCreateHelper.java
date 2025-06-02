@@ -58,7 +58,7 @@ public class OrderCreateHelper {
         saveOrder(order);
         log.info("Order is created with id: {}", orderCreatedEvent.getOrder().getId().getValue());
         //Revisar
-        NotificationOrderCreatedEvent notificationOrderCreatedEvent = new NotificationOrderCreatedEvent(order,, ZonedDateTime.now(ZoneId.of(UTC)));
+        NotificationOrderCreatedEvent notificationOrderCreatedEvent = new NotificationOrderCreatedEvent(order,ZonedDateTime.now(ZoneId.of(UTC)));
         //Revisar notificationOrderCreatedEvent.send();
         return orderCreatedEvent;
     }
