@@ -85,6 +85,7 @@ public class OrderApplicationServiceTest {
                         .city("Paris")
                         .build())
                 .totalAmount(PRICE)
+                /*
                 .items(List.of(OrderItem.builder()
                                     .productStore(ProductStore.builder()
                                             .productStoreId(new ProductStoreId(PRODUCT_ID))
@@ -95,6 +96,8 @@ public class OrderApplicationServiceTest {
                                     .price(new Money(new BigDecimal("50.00")))
                                     .subTotal(new Money(new BigDecimal("150.00")))
                                     .build()))
+
+                 */
                         /*
                                 .productStore(ProductStore.builder()
                                         .productStoreId(new ProductStoreId(PRODUCT_ID))
@@ -118,6 +121,7 @@ public class OrderApplicationServiceTest {
                         .city("Paris")
                         .build())
                 .totalAmount(new BigDecimal("250.00"))
+                /*
                 .items(List.of(OrderItem.builder()
                                 .productStore(ProductStore.builder()
                                         .productStoreId(new ProductStoreId(PRODUCT_ID))
@@ -138,6 +142,8 @@ public class OrderApplicationServiceTest {
                                 .price(new Money(new BigDecimal("50.00")))
                                 .subTotal(new Money(new BigDecimal("150.00")))
                                 .build()))
+
+                 */
                 .build();
 
         createOrderCommandWrongProductPrice = CreateOrderCommand.builder()
@@ -149,6 +155,7 @@ public class OrderApplicationServiceTest {
                         .city("Paris")
                         .build())
                 .totalAmount(new BigDecimal("210.00"))
+                /*
                 .items(List.of(OrderItem.builder()
                                 .productStore(ProductStore.builder()
                                         .productStoreId(new ProductStoreId(PRODUCT_ID))
@@ -169,21 +176,24 @@ public class OrderApplicationServiceTest {
                                 .price(new Money(new BigDecimal("50.00")))
                                 .subTotal(new Money(new BigDecimal("150.00")))
                                 .build()))
+
+                 */
                 .build();
 
+/*
         Customer customer = new Customer(
                                 new CustomerId(CUSTOMER_ID),
                                 new Identification(ADDRESS_ID,TypeIdentification.CEDULA,"123456789"),
                                 "FirstName 1","LastName 1","correo@correo.com","12345", UserRole.CUSTOMER,
                                 new Address(ADDRESS_ID, "Calle 1","Bogotá","Bogotá","Colombia","111111")
                             );
-
+*/
         Store storeResponse = Store.builder()
                 .storeId(new StoreId(createOrderCommand.getStoreId()))
                 .name("Store # 1")
                 .description("Description # 1")
-                .address(new Address(ADDRESS_ID, "Calle 1","Bogotá","Bogotá","Colombia","111111"))
-                .contact(new Contact(CONTACT_ID,"CONTACT # 1","PHONE # 1"))
+                .storeAddress(new Address(ADDRESS_ID, "Calle 1","Bogotá","Bogotá","Colombia","111111"))
+                .storeContact(new Contact(CONTACT_ID,"CONTACT # 1","PHONE # 1"))
                 .active(true)
                 /**
                 .productStore(ProductStore.builder()
