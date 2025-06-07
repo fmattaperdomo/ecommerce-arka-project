@@ -86,10 +86,10 @@ public class StoreApprovalRequestHelper {
 
         Store storeEntity = storeResult.get();
         store.setActive(storeEntity.isActive());
-        store.getOrderDetail().getProducts().forEach(product ->
-                storeEntity.getOrderDetail().getProducts().forEach(p -> {
-                    if (p.getId().equals(product.getId())) {
-                        product.updateWithConfirmedNamePriceAndAvailability(p.getName(), p.getPrice(), p.isAvailable());
+        store.getOrderDetail().getProductsStore().forEach(productStore ->
+                storeEntity.getOrderDetail().getProductsStore().forEach(p -> {
+                    if (p.getId().equals(productStore.getId())) {
+                        productStore.updateWithConfirmedNamePriceAndAvailability(p.getBarCode(), p.getPrice(), p.isAvailable());
                     }
                 }));
         store.getOrderDetail().setId(new OrderId(UUID.fromString(storeApprovalRequest.getOrderId())));

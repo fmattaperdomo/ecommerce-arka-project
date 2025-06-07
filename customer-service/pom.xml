@@ -11,6 +11,7 @@
 
     <artifactId>customer-service</artifactId>
     <packaging>pom</packaging>
+
     <modules>
         <module>customer-application</module>
         <module>customer-container</module>

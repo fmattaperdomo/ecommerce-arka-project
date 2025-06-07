@@ -22,7 +22,7 @@ public class OrderMessagingDataMapper {
                 .paymentId(paymentResponseAvroModel.getPaymentId())
                 .customerId(paymentResponseAvroModel.getCustomerId())
                 .orderId(paymentResponseAvroModel.getOrderId())
-                .price(paymentResponseAvroModel.getPrice())
+                .totalAmount(paymentResponseAvroModel.getPrice())
                 .createdAt(paymentResponseAvroModel.getCreatedAt())
                 .paymentStatus(com.fmattaperdomo.domain.valueobject.PaymentStatus.valueOf(
                         paymentResponseAvroModel.getPaymentStatus().name()))
@@ -70,10 +70,9 @@ public class OrderMessagingDataMapper {
                         .valueOf(orderApprovalEventPayload.getStoreOrderStatus()))
                 .setProductsStore(orderApprovalEventPayload.getProductsStore().stream().map(orderApprovalEventProduct ->
                         com.fmattaperdomo.kafka.order.avro.model.ProductStore.newBuilder()
-                                .setId(orderApprovalEventProductStore.getId())
-                                .setQuantity(orderApprovalEventProduct.getQuantity())
+                                .setId(orderApprovalEventProduct.getId())
+                                .setStockQuantity(orderApprovalEventProduct.getQuantity())
                                 .build()).collect(Collectors.toList()))
-                .setPrice(orderApprovalEventPayload.getPrice())
                 .setCreatedAt(orderApprovalEventPayload.getCreatedAt().toInstant())
                 .build();
     }
@@ -81,7 +80,7 @@ public class OrderMessagingDataMapper {
     public CustomerModel customerAvroModeltoCustomerModel(CustomerAvroModel customerAvroModel) {
         return CustomerModel.builder()
                 .id(customerAvroModel.getId())
-                .username(customerAvroModel.getUsername())
+                //.username(customerAvroModel.getUsername())
                 .firstName(customerAvroModel.getFirstName())
                 .lastName(customerAvroModel.getLastName())
                 .build();

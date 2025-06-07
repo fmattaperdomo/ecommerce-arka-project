@@ -7,7 +7,7 @@ public class Category {
     private final UUID id;
     private String name;
 
-    public Category(UUID id, String name, String phone) {
+    public Category(UUID id, String name) {
         this.id = id;
         this.name = name;
     }

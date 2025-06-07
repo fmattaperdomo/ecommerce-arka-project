@@ -1,5 +1,5 @@
 package com.fmattaperdomo.domain.valueobject;
 
 public enum TypeIdentification {
-    DNI, CEDULA, PASAPORTE, TARJETA_DE_IDENTIDAD, OTRO
+    DNI, CITIZENSHIP, PASSPORT, IDENTITY, OTHER
 }

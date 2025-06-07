@@ -22,8 +22,10 @@ public class OrderAddressEntity {
     private OrderEntity order;
 
     private String street;
-    private String postalCode;
     private String city;
+    private String state;
+    private String country;
+    private String zipcode;
 
     @Override
     public boolean equals(Object o) {

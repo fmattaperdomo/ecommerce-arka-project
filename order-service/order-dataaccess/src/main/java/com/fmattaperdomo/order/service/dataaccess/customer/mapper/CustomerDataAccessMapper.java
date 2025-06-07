@@ -15,7 +15,7 @@ public class CustomerDataAccessMapper {
     public CustomerEntity customerToCustomerEntity(Customer customer) {
         return CustomerEntity.builder()
                 .id(customer.getId().getValue())
-                .username(customer.getUsername())
+                //revisar.username(customer.getUsername())
                 .firstName(customer.getFirstName())
                 .lastName(customer.getLastName())
                 .build();

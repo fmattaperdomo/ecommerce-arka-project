@@ -4,15 +4,15 @@ import java.util.Objects;
 import java.util.UUID;
 
 public class Feature {
-    private final UUID id;
+    private final Long id;
     private String name;
 
-    public Feature(UUID id, String name, String phone) {
+    public Feature(Long id, String name) {
         this.id = id;
         this.name = name;
     }
 
-    public UUID getId() {
+    public Long getId() {
         return id;
     }
 

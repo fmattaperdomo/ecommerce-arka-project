@@ -6,7 +6,7 @@ import com.fmattaperdomo.store.service.domain.outbox.model.OrderOutboxMessage;
 
 import java.util.function.BiConsumer;
 
-public class StoreApprovalResponseMessagePublisher {
+public interface StoreApprovalResponseMessagePublisher {
 
     void publish(OrderOutboxMessage orderOutboxMessage,
                  BiConsumer<OrderOutboxMessage, OutboxStatus> outboxCallback);

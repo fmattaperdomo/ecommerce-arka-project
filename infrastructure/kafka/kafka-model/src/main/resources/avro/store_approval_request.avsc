@@ -36,30 +36,132 @@
             }
         },
         {
-            "name": "products",
+            "name": "productsStore",
             "type": {
                 "type": "array",
                 "items":{
-                  "name":"Product",
-                  "type":"record",
-                  "fields":[
-                    {"name":"id", "type": "string", "logicalType": "uuid"},
-                    {"name":"quantity", "type": "int"}
-                   ]
-               }
+                    "name":"ProductStore",
+                    "type":"record",
+                    "fields":[
+                        {"name":"id", "type" :"string", "logicalType": "uuid"},
+                        {"name": "product", "type": {
+                            "type": "record",
+                            "name": "Product",
+                            "fields": [
+                                {"name":"id", "type" :"string", "logicalType": "uuid"},
+                                {"name":"name", "type": "string"},
+                                {"name":"description", "type": "string"},
+                                {"name": "brand", "type": {"type": "record","name":"Brand", "fields": [
+                                    {"name":"id", "type": "string", "logicalType": "uuid"},
+                                    {"name":"name", "type": "string"}
+                                ]}},
+                                {"name": "category","type": {"type": "record","name":"Category","fields": [
+                                    {"name":"id", "type": "string", "logicalType": "uuid"},
+                                    {"name":"name", "type": "string"}
+                                ]}},
+                                {"name":"imageUrl", "type": "string"},
+                                {"name": "productFeatures","type": {"type": "array","items": {"name": "ProductFeature","type": "record", "fields": [
+                                    {"name": "id","type": "string", "logicalType": "uuid"},
+                                    {"name": "productId","type": "string","logicalType": "uuid"},
+                                    {"name": "feature","type":{ "type": "record","name":"Feature","fields": [
+                                        {"name":"id", "type": "string", "logicalType": "uuid"},
+                                        {"name":"name", "type": "string"}
+                                    ]}},
+                                    {"name": "value","type": "string"},
+                                    {"name": "createdAt","type": {"type": "long","logicalType": "timestamp-millis"}},
+                                    {"name": "updatedAt","type": {"type": "long","logicalType": "timestamp-millis"}}
+                                ]}}},
+                                {"name": "active","type": "boolean"},
+                                {"name": "createdAt","type": {"type": "long","logicalType": "timestamp-millis"}},
+                                {"name": "updatedAt","type": {"type": "long","logicalType": "timestamp-millis"}}
+                            ]}
+                        },
+                        {
+                            "name": "price",
+                            "type": {
+                                "type": "bytes",
+                                "logicalType": "decimal",
+                                "precision": 10,
+                                "scale": 2
+                            }
+                        },
+                        {"name": "stockQuantity","type": "int"},
+                        {"name":"barCode", "type": "string"},
+                        {"name":"supplierId", "type": "string", "logicalType": "uuid"},
+                        {"name": "createdAt","type": {"type": "long","logicalType": "timestamp-millis"}},
+                        {"name": "updatedAt","type": {"type": "long","logicalType": "timestamp-millis"}}
+                    ]
+                }
+            }
+        },
+        {"name":"name", "type": "string"},
+        {"name":"description", "type": "string"},
+        {
+            "name": "storeAddress",
+            "type": {
+                "type": "record",
+                "name": "StoreAddress",
+                "fields": [
+                    {
+                        "name": "id",
+                        "type": "string",
+                        "logicalType": "uuid"
+                    },
+                    {
+                        "name": "street",
+                        "type": "string"
+                    },
+                    {
+                        "name": "city",
+                        "type": "string"
+                    },
+                    {
+                        "name": "state",
+                        "type": "string"
+                    },
+                    {
+                        "name": "country",
+                        "type": "string"
+                    },
+                    {
+                        "name": "zipcode",
+                        "type": "string"
+                    }
+                ]
             }
         },
         {
-            "name": "price",
+            "name": "storeContact",
             "type": {
-                "type": "bytes",
-                "logicalType": "decimal",
-                "precision": 10,
-                "scale": 2
+                "type": "record",
+                "name": "StoreContact",
+                "fields": [
+                    {
+                        "name": "id",
+                        "type": "string",
+                        "logicalType": "uuid"
+                    },
+                    {
+                        "name": "name",
+                        "type": "string"
+                    },
+                    {
+                        "name": "phone",
+                        "type": "string"
+                    }
+                ]
             }
         },
+        {"name": "active","type": "boolean"},
         {
             "name": "createdAt",
+            "type": {
+                "type": "long",
+                "logicalType": "timestamp-millis"
+            }
+        },
+        {
+            "name": "updatedAt",
             "type": {
                 "type": "long",
                 "logicalType": "timestamp-millis"

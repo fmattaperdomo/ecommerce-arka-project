@@ -6,6 +6,7 @@ import com.fmattaperdomo.domain.valueobject.Money;
 import com.fmattaperdomo.domain.valueobject.ProductId;
 import com.fmattaperdomo.domain.valueobject.StoreId;
 import com.fmattaperdomo.order.service.domain.entity.Product;
+import com.fmattaperdomo.order.service.domain.entity.ProductStore;
 import com.fmattaperdomo.order.service.domain.entity.Store;
 import org.springframework.stereotype.Component;
 
@@ -26,16 +27,18 @@ public class StoreDataAccessMapper {
         StoreEntity storeEntity =
                 storeEntities.stream().findFirst().orElseThrow(() ->
                         new StoreDataAccessException("Store could not be found!"));
-
-        List<Product> storeProducts = storeEntities.stream().map(entity ->
-                new Product(new ProductId(entity.getProductId()), entity.getProductName(),
-                        new Money(entity.getProductPrice()))).toList();
+/*** REVISAR
+        List<ProductStore> storeProducts = storeEntities.stream().map(entity ->
+                new ProductStore(new ProductId(entity.getProductId()), entity.getStoreName(),
+                        new Money(entity.getProductStorePrice()))).toList();
 
         return Store.builder()
                 .storeId(new StoreId(storeEntity.getStoreId()))
-                .products(storeProducts)
-                .active(storeEntity.getStoreActive())
+                ..productStore(storeEntity.ProductsStore)
+                 .active(storeEntity.getStoreActive())
                 .build();
+ }
+ ***/
+        return null;
     }
 }
-

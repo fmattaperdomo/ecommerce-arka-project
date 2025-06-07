@@ -21,12 +21,6 @@
         <module>payment-service</module>
         <module>customer-service</module>
         <module>infrastructure</module>
-        <module>supplier-service</module>
-        <module>supplier-service/supplier-application</module>
-        <module>supplier-service/supplier-container</module>
-        <module>supplier-service/supplier-dataaccess</module>
-        <module>supplier-service/supplier-domain</module>
-        <module>supplier-service/supplier-domain/supplier-domain-core</module>
     </modules>
 
 
@@ -35,9 +29,9 @@
         <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven-compiler-plugin.version>3.14.0</maven-compiler-plugin.version>
-        <mockito.version>5.12.0</mockito.version>
-        <spring-kafka.version>3.3.5</spring-kafka.version>
-        <kafka-avro-serializer.version>7.9.0</kafka-avro-serializer.version>
+        <mockito.version>5.18.0</mockito.version>
+        <spring-kafka.version>3.3.6</spring-kafka.version>
+        <kafka-avro-serializer.version>7.9.1</kafka-avro-serializer.version>
         <avro.version>1.12.0</avro.version>
     </properties>
 

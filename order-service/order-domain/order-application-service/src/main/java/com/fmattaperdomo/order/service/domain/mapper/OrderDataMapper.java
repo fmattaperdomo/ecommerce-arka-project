@@ -96,7 +96,7 @@ public class OrderDataMapper {
     }
 
     public Customer customerModelToCustomer(CustomerModel customerModel) {
-        Customer.builder()
+        return Customer.builder()
                 .customerId(new CustomerId(UUID.fromString(customerModel.getId())))
                 .customerDocument(customerModel.getCustomerDocument())
                 .firstName (customerModel.getFirstName())
@@ -106,8 +106,6 @@ public class OrderDataMapper {
                 .userRole(customerModel.getUserRole())
                 .customerAddress(customerModel.getCustomerAddress())
                 .build();
-
-        return new Customer(Customer.builder());
     }
 
     private List<OrderItem> orderItemsToOrderItemEntities(

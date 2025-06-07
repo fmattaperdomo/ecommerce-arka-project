@@ -1,7 +1,6 @@
 package com.fmattaperdomo.order.service.domain.entity;
 
 import com.fmattaperdomo.domain.entity.BaseEntity;
-import com.fmattaperdomo.domain.valueobject.CustomerId;
 import com.fmattaperdomo.domain.valueobject.Feature;
 import com.fmattaperdomo.domain.valueobject.ProductFeatureId;
 import com.fmattaperdomo.domain.valueobject.ProductId;

@@ -2,15 +2,9 @@ package com.fmattaperdomo.store.service.dataaccess.store.mapper;
 
 import com.fmattaperdomo.dataaccess.store.entity.StoreEntity;
 import com.fmattaperdomo.dataaccess.store.exception.StoreDataAccessException;
-import com.fmattaperdomo.domain.valueobject.Money;
-import com.fmattaperdomo.domain.valueobject.OrderId;
-import com.fmattaperdomo.domain.valueobject.ProductId;
-import com.fmattaperdomo.domain.valueobject.StoreId;
+import com.fmattaperdomo.domain.valueobject.*;
 import com.fmattaperdomo.store.service.dataaccess.store.entity.OrderApprovalEntity;
-import com.fmattaperdomo.store.service.domain.entity.OrderApproval;
-import com.fmattaperdomo.store.service.domain.entity.OrderDetail;
-import com.fmattaperdomo.store.service.domain.entity.Product;
-import com.fmattaperdomo.store.service.domain.entity.Store;
+import com.fmattaperdomo.store.service.domain.entity.*;
 import com.fmattaperdomo.store.service.domain.valueobject.OrderApprovalId;
 import org.springframework.stereotype.Component;
 
@@ -33,12 +27,12 @@ public class StoreDataAccessMapper {
 
         List<ProductStore> productsStore = storeEntities.stream().map(entity ->
                         ProductStore.builder()
-                                .storeId(new StoreId(entity.getStoreId()))
-                                .productId(new ProductId(entity.getProductId()))
-                                .price(new Money(entity.getPrice()))
-                                .stockQuantity(entity.getStockQuantity())
-                                .barCode(entity.getBarCode())
-                                .supplierId(new SupplierId(entity.getSupplierId()))
+                                .storeId(entity.getStoreId())
+                                .productStoreId(new ProductStoreId(entity.getProductStoreId()))
+                                .price(new Money(entity.getProductStorePrice()))
+                                .stockQuantity(entity.getProductStoreStockQuantity())
+                                .barCode(entity.getProductStoreBarcode())
+                                .supplierID(new SupplierId(entity.getProductStoreSupplierId()))
                                 .build())
                 .collect(Collectors.toList());
 

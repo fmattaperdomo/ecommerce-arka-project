@@ -7,6 +7,7 @@ import com.fmattaperdomo.domain.valueobject.StoreId;
 import com.fmattaperdomo.store.service.domain.dto.StoreApprovalRequest;
 import com.fmattaperdomo.store.service.domain.entity.OrderDetail;
 import com.fmattaperdomo.store.service.domain.entity.Product;
+import com.fmattaperdomo.store.service.domain.entity.ProductStore;
 import com.fmattaperdomo.store.service.domain.entity.Store;
 import com.fmattaperdomo.store.service.domain.event.OrderApprovalEvent;
 import com.fmattaperdomo.store.service.domain.outbox.model.OrderEventPayload;
@@ -23,10 +24,10 @@ public class StoreDataMapper {
                 .storeId(new StoreId(UUID.fromString(storeApprovalRequest.getStoreId())))
                 .orderDetail(OrderDetail.builder()
                         .orderId(new OrderId(UUID.fromString(storeApprovalRequest.getOrderId())))
-                        .products(storeApprovalRequest.getProducts().stream().map(
-                                        product -> Product.builder()
-                                                .productId(product.getId())
-                                                .quantity(product.getQuantity())
+                        .productsStore(storeApprovalRequest.getProductsStore().stream().map(
+                                        productStore -> ProductStore.builder()
+                                                .productStoreId(productStore.getId())
+                                                .quantity(productStore.getQuantity())
                                                 .build())
                                 .collect(Collectors.toList()))
                         .totalAmount(new Money(storeApprovalRequest.getPrice()))

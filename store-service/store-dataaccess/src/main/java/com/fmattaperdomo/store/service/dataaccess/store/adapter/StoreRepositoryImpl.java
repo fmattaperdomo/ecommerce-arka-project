@@ -28,7 +28,7 @@ public class StoreRepositoryImpl implements StoreRepository{
         List<UUID> productsStore =
                 storeDataAccessMapper.storeToProductsStore(store);
         Optional<List<StoreEntity>> storeEntities = storeJpaRepository
-                .findByStoreIdAndProductIdIn(store.getId().getValue(),
+                .findByProductStoreIdAndStoreProductIdIn(store.getId().getValue(),
                         productsStore);
         return storeEntities.map(storeDataAccessMapper::storeEntityToStore);
     }

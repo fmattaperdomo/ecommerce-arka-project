@@ -7,6 +7,7 @@ import com.fmattaperdomo.order.service.dataaccess.order.entity.OrderItemEntity;
 import com.fmattaperdomo.order.service.domain.entity.Order;
 import com.fmattaperdomo.order.service.domain.entity.OrderItem;
 import com.fmattaperdomo.order.service.domain.entity.ProductStore;
+import com.fmattaperdomo.order.service.domain.valueobject.OrderItemId;
 import com.fmattaperdomo.order.service.domain.valueobject.TrackingId;
 import org.springframework.stereotype.Component;
 
@@ -27,7 +28,7 @@ public class OrderDataAccessMapper {
                 .storeId(order.getStoreId().getValue())
                 .trackingId(order.getTrackingId().getValue())
                 .address(deliveryAddressToAddressEntity(order.getDeliveryAddress()))
-                .price(order.getPrice().getAmount())
+                .price(order.getTotalAmount().getAmount())
                 .items(orderItemsToOrderItemEntities(order.getItems()))
                 .orderStatus(order.getOrderStatus())
                 .failureMessages(order.getFailureMessages() != null ?
@@ -45,7 +46,7 @@ public class OrderDataAccessMapper {
                 .customerId(new CustomerId(orderEntity.getCustomerId()))
                 .storeId(new StoreId(orderEntity.getStoreId()))
                 .deliveryAddress(addressEntityToDeliveryAddress(orderEntity.getAddress()))
-                .price(new Money(orderEntity.getPrice()))
+                .totalAmount(new Money(orderEntity.getPrice()))
                 .items(orderItemEntitiesToOrderItems(orderEntity.getItems()))
                 .trackingId(new TrackingId(orderEntity.getTrackingId()))
                 .orderStatus(orderEntity.getOrderStatus())
@@ -59,7 +60,7 @@ public class OrderDataAccessMapper {
         return items.stream()
                 .map(orderItemEntity -> OrderItem.builder()
                         .orderItemId(new OrderItemId(orderItemEntity.getId()))
-                        .productStore(new ProductStore(new ProductStoreId(orderItemEntity.getProductStoreId())))
+                        .productStore(new ProductStore(new ProductStoreId(orderItemEntity.getProductId())))
                         .price(new Money(orderItemEntity.getPrice()))
                         .quantity(orderItemEntity.getQuantity())
                         .subTotal(new Money(orderItemEntity.getSubTotal()))
@@ -73,14 +74,14 @@ public class OrderDataAccessMapper {
                 address.getCity(),
                 address.getState(),
                 address.getCountry(),
-                address.getZipCode());
+                address.getZipcode());
     }
 
     private List<OrderItemEntity> orderItemsToOrderItemEntities(List<OrderItem> items) {
         return items.stream()
                 .map(orderItem -> OrderItemEntity.builder()
                         .id(orderItem.getId().getValue())
-                        .productStoreId(orderItem.getProductStore().getId().getValue())
+                        .productId(orderItem.getProductStore().getId().getValue())
                         .price(orderItem.getPrice().getAmount())
                         .quantity(orderItem.getQuantity())
                         .subTotal(orderItem.getSubTotal().getAmount())
@@ -95,7 +96,7 @@ public class OrderDataAccessMapper {
                 .city(deliveryAddress.getCity())
                 .state(deliveryAddress.getState())
                 .country(deliveryAddress.getCountry())
-                .zipCode(deliveryAddress.getZipCode())
+                .zipcode(deliveryAddress.getZipcode())
                 .build();
     }
 }

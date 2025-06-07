@@ -1,6 +1,7 @@
 package com.fmattaperdomo.store.service.messaging.mapper;
 
 import com.fmattaperdomo.domain.valueobject.ProductId;
+import com.fmattaperdomo.domain.valueobject.ProductStoreId;
 import com.fmattaperdomo.domain.valueobject.StoreOrderStatus;
 import com.fmattaperdomo.kafka.order.avro.model.OrderApprovalStatus;
 import com.fmattaperdomo.kafka.order.avro.model.StoreApprovalRequestAvroModel;
@@ -32,10 +33,9 @@ public class StoreMessagingDataMapper {
                         .stream().map(avroModel ->
                                 ProductStore.builder()
                                         .productStoreId(new ProductStoreId(UUID.fromString(avroModel.getId())))
-                                        .quantity(avroModel.getQuantity())
+                                        .quantity(avroModel.getStockQuantity())
                                         .build())
                         .collect(Collectors.toList()))
-                .price(storeApprovalRequestAvroModel.getPrice())
                 .createdAt(storeApprovalRequestAvroModel.getCreatedAt())
                 .build();
     }

@@ -7,7 +7,7 @@ public class Brand {
     private final UUID id;
     private String name;
 
-    public Brand(UUID id, String name, String phone) {
+    public Brand(UUID id, String name) {
         this.id = id;
         this.name = name;
     }

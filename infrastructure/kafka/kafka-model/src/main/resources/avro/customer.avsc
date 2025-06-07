@@ -10,9 +10,35 @@
       }
     },
     {
-      "name": "username",
+      "name": "customerDocument",
       "type": {
-        "type": "string"
+        "type": "record",
+        "name": "CustomerDocument",
+        "fields": [
+          {
+            "name": "id",
+            "type": "string",
+            "logicalType": "uuid"
+          },
+          {
+            "name": "typeIdentification",
+            "type": {
+              "type": "enum",
+              "name": "TypeIdentification",
+              "symbols": [
+                "DNI",
+                "CITIZENSHIP",
+                "PASSPORT",
+                "IDENTITY",
+                "OTHER"
+              ]
+            }
+          },
+          {
+            "name": "documentNumber",
+            "type": "string"
+          }
+        ]
       }
     },
     {
@@ -25,6 +51,74 @@
       "name": "lastName",
       "type": {
         "type": "string"
+      }
+    },
+    {
+      "name": "email",
+      "type": {
+        "type": "string"
+      }
+    },
+    {
+      "name": "phone",
+      "type": {
+        "type": "string"
+      }
+    },
+    {
+      "name": "userRole",
+      "type": {
+        "type": "enum",
+        "name": "UserRole",
+        "symbols": ["CUSTOMER"]
+      }
+    },
+    {
+      "name": "customerAddress",
+      "type": {
+        "type": "record",
+        "name": "CustomerAddress",
+        "fields": [
+          {
+            "name": "id",
+            "type": "string",
+            "logicalType": "uuid"
+          },
+          {
+            "name": "street",
+            "type": "string"
+          },
+          {
+            "name": "city",
+            "type": "string"
+          },
+          {
+            "name": "state",
+            "type": "string"
+          },
+          {
+            "name": "country",
+            "type": "string"
+          },
+          {
+            "name": "zipcode",
+            "type": "string"
+          }
+        ]
+      }
+    },
+    {
+      "name": "createdAt",
+      "type": {
+        "type": "long",
+        "logicalType": "timestamp-millis"
+      }
+    },
+    {
+      "name": "updatedAt",
+      "type": {
+        "type": "long",
+        "logicalType": "timestamp-millis"
       }
     }
   ]
