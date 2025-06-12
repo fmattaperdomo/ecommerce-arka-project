@@ -11,5 +11,5 @@ import java.util.UUID;
 
 @Repository
 public interface StoreJpaRepository extends JpaRepository<StoreEntity, StoreEntityId> {
-    Optional<List<StoreEntity>> findByProductStoreIdAndStoreProductIdIn(UUID storeId, List<UUID> productIds);
+    Optional<List<StoreEntity>> findByStoreIdAndProductStoreIdIn(UUID storeId, List<UUID> productStoreIds);
 }

@@ -1,10 +1,9 @@
 package com.fmattaperdomo.order.service.dataaccess.customer.entity;
 
+import com.fmattaperdomo.domain.valueobject.UserRole;
+import jakarta.persistence.*;
 import lombok.*;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
 import java.util.UUID;
 
 @Getter
@@ -15,11 +14,20 @@ import java.util.UUID;
 @Table(name = "customers")
 @Entity
 public class CustomerEntity {
-
     @Id
     private UUID id;
-    private String username;
+    @OneToOne(mappedBy = "customer", cascade = CascadeType.ALL)
+    private CustomerIdentificationEntity customerIdentification;
     private String firstName;
     private String lastName;
+    private String email;
+    private String phone;
+
+    @Enumerated(EnumType.STRING)
+    private UserRole userRole;
+
+    @OneToOne(mappedBy = "customer", cascade = CascadeType.ALL)
+    private CustomerAddressEntity customerAddress;
+
 }
 

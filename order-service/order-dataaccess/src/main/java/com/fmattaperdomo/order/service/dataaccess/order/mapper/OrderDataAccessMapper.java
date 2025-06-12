@@ -27,14 +27,14 @@ public class OrderDataAccessMapper {
                 .customerId(order.getCustomerId().getValue())
                 .storeId(order.getStoreId().getValue())
                 .trackingId(order.getTrackingId().getValue())
-                .address(deliveryAddressToAddressEntity(order.getDeliveryAddress()))
-                .price(order.getTotalAmount().getAmount())
+                .deliveryAddress(deliveryAddressToAddressEntity(order.getDeliveryAddress()))
+                .totalAmount(order.getTotalAmount().getAmount())
                 .items(orderItemsToOrderItemEntities(order.getItems()))
                 .orderStatus(order.getOrderStatus())
                 .failureMessages(order.getFailureMessages() != null ?
                         String.join(FAILURE_MESSAGE_DELIMITER, order.getFailureMessages()) : "")
                 .build();
-        orderEntity.getAddress().setOrder(orderEntity);
+        orderEntity.getDeliveryAddress().setOrder(orderEntity);
         orderEntity.getItems().forEach(orderItemEntity -> orderItemEntity.setOrder(orderEntity));
 
         return orderEntity;
@@ -45,8 +45,8 @@ public class OrderDataAccessMapper {
                 .orderId(new OrderId(orderEntity.getId()))
                 .customerId(new CustomerId(orderEntity.getCustomerId()))
                 .storeId(new StoreId(orderEntity.getStoreId()))
-                .deliveryAddress(addressEntityToDeliveryAddress(orderEntity.getAddress()))
-                .totalAmount(new Money(orderEntity.getPrice()))
+                .deliveryAddress(addressEntityToDeliveryAddress(orderEntity.getDeliveryAddress()))
+                .totalAmount(new Money(orderEntity.getTotalAmount()))
                 .items(orderItemEntitiesToOrderItems(orderEntity.getItems()))
                 .trackingId(new TrackingId(orderEntity.getTrackingId()))
                 .orderStatus(orderEntity.getOrderStatus())
@@ -60,7 +60,7 @@ public class OrderDataAccessMapper {
         return items.stream()
                 .map(orderItemEntity -> OrderItem.builder()
                         .orderItemId(new OrderItemId(orderItemEntity.getId()))
-                        .productStore(new ProductStore(new ProductStoreId(orderItemEntity.getProductId())))
+                        .productStore(new ProductStore(new ProductStoreId(orderItemEntity.getProductStoreId())))
                         .price(new Money(orderItemEntity.getPrice()))
                         .quantity(orderItemEntity.getQuantity())
                         .subTotal(new Money(orderItemEntity.getSubTotal()))
@@ -81,7 +81,7 @@ public class OrderDataAccessMapper {
         return items.stream()
                 .map(orderItem -> OrderItemEntity.builder()
                         .id(orderItem.getId().getValue())
-                        .productId(orderItem.getProductStore().getId().getValue())
+                        .productStoreId(orderItem.getProductStore().getId().getValue())
                         .price(orderItem.getPrice().getAmount())
                         .quantity(orderItem.getQuantity())
                         .subTotal(orderItem.getSubTotal().getAmount())

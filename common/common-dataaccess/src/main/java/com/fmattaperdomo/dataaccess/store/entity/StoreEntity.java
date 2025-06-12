@@ -22,14 +22,14 @@ public class StoreEntity {
     @Id
     private UUID storeId;
     @Id
-    private UUID storeProductId;
+    private UUID productStoreId;
     private String storeName;
     private String storeDescription;
     private UUID storeAddressId;
     private UUID storeContactId;
     private Boolean storeActive;
-    private UUID productStoreId;
-    private UUID productId;
+    private UUID productStoreProductId;
+    private String productStoreProductName;
     private BigDecimal productStorePrice;
     private Integer productStoreStockQuantity;
     private String productStoreBarcode;
@@ -40,12 +40,12 @@ public class StoreEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         StoreEntity that = (StoreEntity) o;
-        return storeId.equals(that.storeId) && storeProductId.equals(that.storeProductId);
+        return storeId.equals(that.storeId) && productStoreId.equals(that.productStoreId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(storeId, storeProductId);
+        return Objects.hash(storeId, productStoreId);
     }
 }
 

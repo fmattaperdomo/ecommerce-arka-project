@@ -13,10 +13,10 @@ import org.apache.avro.message.SchemaStore;
 
 @org.apache.avro.specific.AvroGenerated
 public class StoreApprovalRequestAvroModel extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = -5760853778395715929L;
+  private static final long serialVersionUID = -3831815368768507870L;
 
 
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"StoreApprovalRequestAvroModel\",\"namespace\":\"com.fmattaperdomo.kafka.order.avro.model\",\"fields\":[{\"name\":\"id\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"sagaId\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"storeId\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"orderId\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"storeOrderStatus\",\"type\":{\"type\":\"enum\",\"name\":\"StoreOrderStatus\",\"symbols\":[\"PAID\"]}},{\"name\":\"productsStore\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"ProductStore\",\"fields\":[{\"name\":\"id\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"logicalType\":\"uuid\"},{\"name\":\"product\",\"type\":{\"type\":\"record\",\"name\":\"Product\",\"fields\":[{\"name\":\"id\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"logicalType\":\"uuid\"},{\"name\":\"name\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"description\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"brand\",\"type\":{\"type\":\"record\",\"name\":\"Brand\",\"fields\":[{\"name\":\"id\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"logicalType\":\"uuid\"},{\"name\":\"name\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]}},{\"name\":\"category\",\"type\":{\"type\":\"record\",\"name\":\"Category\",\"fields\":[{\"name\":\"id\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"logicalType\":\"uuid\"},{\"name\":\"name\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]}},{\"name\":\"imageUrl\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"productFeatures\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"ProductFeature\",\"fields\":[{\"name\":\"id\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"logicalType\":\"uuid\"},{\"name\":\"productId\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"logicalType\":\"uuid\"},{\"name\":\"feature\",\"type\":{\"type\":\"record\",\"name\":\"Feature\",\"fields\":[{\"name\":\"id\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"logicalType\":\"uuid\"},{\"name\":\"name\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]}},{\"name\":\"value\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"createdAt\",\"type\":{\"type\":\"long\",\"logicalType\":\"timestamp-millis\"}},{\"name\":\"updatedAt\",\"type\":{\"type\":\"long\",\"logicalType\":\"timestamp-millis\"}}]}}},{\"name\":\"active\",\"type\":\"boolean\"},{\"name\":\"createdAt\",\"type\":{\"type\":\"long\",\"logicalType\":\"timestamp-millis\"}},{\"name\":\"updatedAt\",\"type\":{\"type\":\"long\",\"logicalType\":\"timestamp-millis\"}}]}},{\"name\":\"price\",\"type\":{\"type\":\"bytes\",\"logicalType\":\"decimal\",\"precision\":10,\"scale\":2}},{\"name\":\"stockQuantity\",\"type\":\"int\"},{\"name\":\"barCode\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"supplierId\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"logicalType\":\"uuid\"},{\"name\":\"createdAt\",\"type\":{\"type\":\"long\",\"logicalType\":\"timestamp-millis\"}},{\"name\":\"updatedAt\",\"type\":{\"type\":\"long\",\"logicalType\":\"timestamp-millis\"}}]}}},{\"name\":\"name\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"description\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"storeAddress\",\"type\":{\"type\":\"record\",\"name\":\"StoreAddress\",\"fields\":[{\"name\":\"id\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"logicalType\":\"uuid\"},{\"name\":\"street\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"city\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"state\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"country\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"zipcode\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]}},{\"name\":\"storeContact\",\"type\":{\"type\":\"record\",\"name\":\"StoreContact\",\"fields\":[{\"name\":\"id\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"logicalType\":\"uuid\"},{\"name\":\"name\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"phone\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]}},{\"name\":\"active\",\"type\":\"boolean\"},{\"name\":\"createdAt\",\"type\":{\"type\":\"long\",\"logicalType\":\"timestamp-millis\"}},{\"name\":\"updatedAt\",\"type\":{\"type\":\"long\",\"logicalType\":\"timestamp-millis\"}}]}");
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"StoreApprovalRequestAvroModel\",\"namespace\":\"com.fmattaperdomo.kafka.order.avro.model\",\"fields\":[{\"name\":\"id\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"sagaId\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"storeId\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"orderId\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"storeOrderStatus\",\"type\":{\"type\":\"enum\",\"name\":\"StoreOrderStatus\",\"symbols\":[\"PAID\"]}},{\"name\":\"productsStore\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"ProductStore\",\"fields\":[{\"name\":\"id\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"logicalType\":\"uuid\"},{\"name\":\"product\",\"type\":{\"type\":\"record\",\"name\":\"Product\",\"fields\":[{\"name\":\"id\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"logicalType\":\"uuid\"},{\"name\":\"name\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"description\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"brand\",\"type\":{\"type\":\"record\",\"name\":\"Brand\",\"fields\":[{\"name\":\"id\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"logicalType\":\"uuid\"},{\"name\":\"name\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]}},{\"name\":\"category\",\"type\":{\"type\":\"record\",\"name\":\"Category\",\"fields\":[{\"name\":\"id\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"logicalType\":\"uuid\"},{\"name\":\"name\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]}},{\"name\":\"imageUrl\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"productFeatures\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"ProductFeature\",\"fields\":[{\"name\":\"id\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"logicalType\":\"uuid\"},{\"name\":\"productId\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"logicalType\":\"uuid\"},{\"name\":\"feature\",\"type\":{\"type\":\"record\",\"name\":\"Feature\",\"fields\":[{\"name\":\"id\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"logicalType\":\"uuid\"},{\"name\":\"name\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]}},{\"name\":\"value\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"createdAt\",\"type\":{\"type\":\"long\",\"logicalType\":\"timestamp-millis\"}},{\"name\":\"updatedAt\",\"type\":{\"type\":\"long\",\"logicalType\":\"timestamp-millis\"}}]}}},{\"name\":\"active\",\"type\":\"boolean\"},{\"name\":\"createdAt\",\"type\":{\"type\":\"long\",\"logicalType\":\"timestamp-millis\"}},{\"name\":\"updatedAt\",\"type\":{\"type\":\"long\",\"logicalType\":\"timestamp-millis\"}}]}},{\"name\":\"price\",\"type\":{\"type\":\"bytes\",\"logicalType\":\"decimal\",\"precision\":10,\"scale\":2}},{\"name\":\"stockQuantity\",\"type\":\"int\"},{\"name\":\"barCode\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"supplierId\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"logicalType\":\"uuid\"},{\"name\":\"createdAt\",\"type\":{\"type\":\"long\",\"logicalType\":\"timestamp-millis\"}},{\"name\":\"updatedAt\",\"type\":{\"type\":\"long\",\"logicalType\":\"timestamp-millis\"}}]}}},{\"name\":\"name\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"description\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"storeAddress\",\"type\":{\"type\":\"record\",\"name\":\"StoreAddress\",\"fields\":[{\"name\":\"id\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"logicalType\":\"uuid\"},{\"name\":\"street\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"city\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"state\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"country\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"zipcode\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]}},{\"name\":\"storeContact\",\"type\":{\"type\":\"record\",\"name\":\"StoreContact\",\"fields\":[{\"name\":\"id\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"logicalType\":\"uuid\"},{\"name\":\"name\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"phone\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]}},{\"name\":\"active\",\"type\":\"boolean\"},{\"name\":\"price\",\"type\":{\"type\":\"bytes\",\"logicalType\":\"decimal\",\"precision\":10,\"scale\":2}},{\"name\":\"createdAt\",\"type\":{\"type\":\"long\",\"logicalType\":\"timestamp-millis\"}},{\"name\":\"updatedAt\",\"type\":{\"type\":\"long\",\"logicalType\":\"timestamp-millis\"}}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static final SpecificData MODEL$ = new SpecificData();
@@ -87,6 +87,7 @@ public class StoreApprovalRequestAvroModel extends org.apache.avro.specific.Spec
   private com.fmattaperdomo.kafka.order.avro.model.StoreAddress storeAddress;
   private com.fmattaperdomo.kafka.order.avro.model.StoreContact storeContact;
   private boolean active;
+  private java.math.BigDecimal price;
   private java.time.Instant createdAt;
   private java.time.Instant updatedAt;
 
@@ -110,10 +111,11 @@ public class StoreApprovalRequestAvroModel extends org.apache.avro.specific.Spec
    * @param storeAddress The new value for storeAddress
    * @param storeContact The new value for storeContact
    * @param active The new value for active
+   * @param price The new value for price
    * @param createdAt The new value for createdAt
    * @param updatedAt The new value for updatedAt
    */
-  public StoreApprovalRequestAvroModel(java.lang.String id, java.lang.String sagaId, java.lang.String storeId, java.lang.String orderId, com.fmattaperdomo.kafka.order.avro.model.StoreOrderStatus storeOrderStatus, java.util.List<com.fmattaperdomo.kafka.order.avro.model.ProductStore> productsStore, java.lang.String name, java.lang.String description, com.fmattaperdomo.kafka.order.avro.model.StoreAddress storeAddress, com.fmattaperdomo.kafka.order.avro.model.StoreContact storeContact, java.lang.Boolean active, java.time.Instant createdAt, java.time.Instant updatedAt) {
+  public StoreApprovalRequestAvroModel(java.lang.String id, java.lang.String sagaId, java.lang.String storeId, java.lang.String orderId, com.fmattaperdomo.kafka.order.avro.model.StoreOrderStatus storeOrderStatus, java.util.List<com.fmattaperdomo.kafka.order.avro.model.ProductStore> productsStore, java.lang.String name, java.lang.String description, com.fmattaperdomo.kafka.order.avro.model.StoreAddress storeAddress, com.fmattaperdomo.kafka.order.avro.model.StoreContact storeContact, java.lang.Boolean active, java.math.BigDecimal price, java.time.Instant createdAt, java.time.Instant updatedAt) {
     this.id = id;
     this.sagaId = sagaId;
     this.storeId = storeId;
@@ -125,6 +127,7 @@ public class StoreApprovalRequestAvroModel extends org.apache.avro.specific.Spec
     this.storeAddress = storeAddress;
     this.storeContact = storeContact;
     this.active = active;
+    this.price = price;
     this.createdAt = createdAt.truncatedTo(java.time.temporal.ChronoUnit.MILLIS);
     this.updatedAt = updatedAt.truncatedTo(java.time.temporal.ChronoUnit.MILLIS);
   }
@@ -150,8 +153,9 @@ public class StoreApprovalRequestAvroModel extends org.apache.avro.specific.Spec
     case 8: return storeAddress;
     case 9: return storeContact;
     case 10: return active;
-    case 11: return createdAt;
-    case 12: return updatedAt;
+    case 11: return price;
+    case 12: return createdAt;
+    case 13: return updatedAt;
     default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
   }
@@ -169,6 +173,7 @@ public class StoreApprovalRequestAvroModel extends org.apache.avro.specific.Spec
       null,
       null,
       null,
+      new org.apache.avro.Conversions.DecimalConversion(),
       new org.apache.avro.data.TimeConversions.TimestampMillisConversion(),
       new org.apache.avro.data.TimeConversions.TimestampMillisConversion(),
       null
@@ -195,8 +200,9 @@ public class StoreApprovalRequestAvroModel extends org.apache.avro.specific.Spec
     case 8: storeAddress = (com.fmattaperdomo.kafka.order.avro.model.StoreAddress)value$; break;
     case 9: storeContact = (com.fmattaperdomo.kafka.order.avro.model.StoreContact)value$; break;
     case 10: active = (java.lang.Boolean)value$; break;
-    case 11: createdAt = (java.time.Instant)value$; break;
-    case 12: updatedAt = (java.time.Instant)value$; break;
+    case 11: price = (java.math.BigDecimal)value$; break;
+    case 12: createdAt = (java.time.Instant)value$; break;
+    case 13: updatedAt = (java.time.Instant)value$; break;
     default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
   }
@@ -389,6 +395,23 @@ public class StoreApprovalRequestAvroModel extends org.apache.avro.specific.Spec
   }
 
   /**
+   * Gets the value of the 'price' field.
+   * @return The value of the 'price' field.
+   */
+  public java.math.BigDecimal getPrice() {
+    return price;
+  }
+
+
+  /**
+   * Sets the value of the 'price' field.
+   * @param value the value to set.
+   */
+  public void setPrice(java.math.BigDecimal value) {
+    this.price = value;
+  }
+
+  /**
    * Gets the value of the 'createdAt' field.
    * @return The value of the 'createdAt' field.
    */
@@ -476,6 +499,7 @@ public class StoreApprovalRequestAvroModel extends org.apache.avro.specific.Spec
     private com.fmattaperdomo.kafka.order.avro.model.StoreContact storeContact;
     private com.fmattaperdomo.kafka.order.avro.model.StoreContact.Builder storeContactBuilder;
     private boolean active;
+    private java.math.BigDecimal price;
     private java.time.Instant createdAt;
     private java.time.Instant updatedAt;
 
@@ -540,13 +564,17 @@ public class StoreApprovalRequestAvroModel extends org.apache.avro.specific.Spec
         this.active = data().deepCopy(fields()[10].schema(), other.active);
         fieldSetFlags()[10] = other.fieldSetFlags()[10];
       }
-      if (isValidValue(fields()[11], other.createdAt)) {
-        this.createdAt = data().deepCopy(fields()[11].schema(), other.createdAt);
+      if (isValidValue(fields()[11], other.price)) {
+        this.price = data().deepCopy(fields()[11].schema(), other.price);
         fieldSetFlags()[11] = other.fieldSetFlags()[11];
       }
-      if (isValidValue(fields()[12], other.updatedAt)) {
-        this.updatedAt = data().deepCopy(fields()[12].schema(), other.updatedAt);
+      if (isValidValue(fields()[12], other.createdAt)) {
+        this.createdAt = data().deepCopy(fields()[12].schema(), other.createdAt);
         fieldSetFlags()[12] = other.fieldSetFlags()[12];
+      }
+      if (isValidValue(fields()[13], other.updatedAt)) {
+        this.updatedAt = data().deepCopy(fields()[13].schema(), other.updatedAt);
+        fieldSetFlags()[13] = other.fieldSetFlags()[13];
       }
     }
 
@@ -602,13 +630,17 @@ public class StoreApprovalRequestAvroModel extends org.apache.avro.specific.Spec
         this.active = data().deepCopy(fields()[10].schema(), other.active);
         fieldSetFlags()[10] = true;
       }
-      if (isValidValue(fields()[11], other.createdAt)) {
-        this.createdAt = data().deepCopy(fields()[11].schema(), other.createdAt);
+      if (isValidValue(fields()[11], other.price)) {
+        this.price = data().deepCopy(fields()[11].schema(), other.price);
         fieldSetFlags()[11] = true;
       }
-      if (isValidValue(fields()[12], other.updatedAt)) {
-        this.updatedAt = data().deepCopy(fields()[12].schema(), other.updatedAt);
+      if (isValidValue(fields()[12], other.createdAt)) {
+        this.createdAt = data().deepCopy(fields()[12].schema(), other.createdAt);
         fieldSetFlags()[12] = true;
+      }
+      if (isValidValue(fields()[13], other.updatedAt)) {
+        this.updatedAt = data().deepCopy(fields()[13].schema(), other.updatedAt);
+        fieldSetFlags()[13] = true;
       }
     }
 
@@ -1124,6 +1156,46 @@ public class StoreApprovalRequestAvroModel extends org.apache.avro.specific.Spec
     }
 
     /**
+      * Gets the value of the 'price' field.
+      * @return The value.
+      */
+    public java.math.BigDecimal getPrice() {
+      return price;
+    }
+
+
+    /**
+      * Sets the value of the 'price' field.
+      * @param value The value of 'price'.
+      * @return This builder.
+      */
+    public com.fmattaperdomo.kafka.order.avro.model.StoreApprovalRequestAvroModel.Builder setPrice(java.math.BigDecimal value) {
+      validate(fields()[11], value);
+      this.price = value;
+      fieldSetFlags()[11] = true;
+      return this;
+    }
+
+    /**
+      * Checks whether the 'price' field has been set.
+      * @return True if the 'price' field has been set, false otherwise.
+      */
+    public boolean hasPrice() {
+      return fieldSetFlags()[11];
+    }
+
+
+    /**
+      * Clears the value of the 'price' field.
+      * @return This builder.
+      */
+    public com.fmattaperdomo.kafka.order.avro.model.StoreApprovalRequestAvroModel.Builder clearPrice() {
+      price = null;
+      fieldSetFlags()[11] = false;
+      return this;
+    }
+
+    /**
       * Gets the value of the 'createdAt' field.
       * @return The value.
       */
@@ -1138,9 +1210,9 @@ public class StoreApprovalRequestAvroModel extends org.apache.avro.specific.Spec
       * @return This builder.
       */
     public com.fmattaperdomo.kafka.order.avro.model.StoreApprovalRequestAvroModel.Builder setCreatedAt(java.time.Instant value) {
-      validate(fields()[11], value);
+      validate(fields()[12], value);
       this.createdAt = value.truncatedTo(java.time.temporal.ChronoUnit.MILLIS);
-      fieldSetFlags()[11] = true;
+      fieldSetFlags()[12] = true;
       return this;
     }
 
@@ -1149,7 +1221,7 @@ public class StoreApprovalRequestAvroModel extends org.apache.avro.specific.Spec
       * @return True if the 'createdAt' field has been set, false otherwise.
       */
     public boolean hasCreatedAt() {
-      return fieldSetFlags()[11];
+      return fieldSetFlags()[12];
     }
 
 
@@ -1158,7 +1230,7 @@ public class StoreApprovalRequestAvroModel extends org.apache.avro.specific.Spec
       * @return This builder.
       */
     public com.fmattaperdomo.kafka.order.avro.model.StoreApprovalRequestAvroModel.Builder clearCreatedAt() {
-      fieldSetFlags()[11] = false;
+      fieldSetFlags()[12] = false;
       return this;
     }
 
@@ -1177,9 +1249,9 @@ public class StoreApprovalRequestAvroModel extends org.apache.avro.specific.Spec
       * @return This builder.
       */
     public com.fmattaperdomo.kafka.order.avro.model.StoreApprovalRequestAvroModel.Builder setUpdatedAt(java.time.Instant value) {
-      validate(fields()[12], value);
+      validate(fields()[13], value);
       this.updatedAt = value.truncatedTo(java.time.temporal.ChronoUnit.MILLIS);
-      fieldSetFlags()[12] = true;
+      fieldSetFlags()[13] = true;
       return this;
     }
 
@@ -1188,7 +1260,7 @@ public class StoreApprovalRequestAvroModel extends org.apache.avro.specific.Spec
       * @return True if the 'updatedAt' field has been set, false otherwise.
       */
     public boolean hasUpdatedAt() {
-      return fieldSetFlags()[12];
+      return fieldSetFlags()[13];
     }
 
 
@@ -1197,7 +1269,7 @@ public class StoreApprovalRequestAvroModel extends org.apache.avro.specific.Spec
       * @return This builder.
       */
     public com.fmattaperdomo.kafka.order.avro.model.StoreApprovalRequestAvroModel.Builder clearUpdatedAt() {
-      fieldSetFlags()[12] = false;
+      fieldSetFlags()[13] = false;
       return this;
     }
 
@@ -1235,8 +1307,9 @@ public class StoreApprovalRequestAvroModel extends org.apache.avro.specific.Spec
           record.storeContact = fieldSetFlags()[9] ? this.storeContact : (com.fmattaperdomo.kafka.order.avro.model.StoreContact) defaultValue(fields()[9]);
         }
         record.active = fieldSetFlags()[10] ? this.active : (java.lang.Boolean) defaultValue(fields()[10]);
-        record.createdAt = fieldSetFlags()[11] ? this.createdAt : (java.time.Instant) defaultValue(fields()[11]);
-        record.updatedAt = fieldSetFlags()[12] ? this.updatedAt : (java.time.Instant) defaultValue(fields()[12]);
+        record.price = fieldSetFlags()[11] ? this.price : (java.math.BigDecimal) defaultValue(fields()[11]);
+        record.createdAt = fieldSetFlags()[12] ? this.createdAt : (java.time.Instant) defaultValue(fields()[12]);
+        record.updatedAt = fieldSetFlags()[13] ? this.updatedAt : (java.time.Instant) defaultValue(fields()[13]);
         return record;
       } catch (org.apache.avro.AvroMissingFieldException e) {
         throw e;

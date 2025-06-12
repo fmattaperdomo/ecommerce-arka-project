@@ -23,7 +23,7 @@ public class OrderItemEntity {
     @JoinColumn(name = "ORDER_ID")
     private OrderEntity order;
 
-    private UUID productId;
+    private UUID productStoreId;
     private BigDecimal price;
     private Integer quantity;
     private BigDecimal subTotal;
