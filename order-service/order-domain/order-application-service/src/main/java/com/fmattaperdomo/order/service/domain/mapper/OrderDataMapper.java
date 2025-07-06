@@ -18,6 +18,7 @@ import com.fmattaperdomo.order.service.domain.outbox.model.payment.OrderPaymentE
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.Random;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
@@ -98,13 +99,13 @@ public class OrderDataMapper {
     public Customer customerModelToCustomer(CustomerModel customerModel) {
         return Customer.builder()
                 .customerId(new CustomerId(UUID.fromString(customerModel.getId())))
-                .customerDocument(customerModel.getCustomerDocument())
+                .typeIdentification(customerModel.getTypeIdentification())
+                .documentNumber(customerModel.getDocumentNumber())
                 .firstName (customerModel.getFirstName())
                 .lastName(customerModel.getLastName())
                 .email(customerModel.getEmail())
                 .phone(customerModel.getPhone())
                 .userRole(customerModel.getUserRole())
-                .customerAddress(customerModel.getCustomerAddress())
                 .build();
     }
 

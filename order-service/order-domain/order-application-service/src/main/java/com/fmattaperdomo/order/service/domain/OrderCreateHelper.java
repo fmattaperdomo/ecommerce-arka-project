@@ -52,14 +52,12 @@ public class OrderCreateHelper {
     @Transactional
     public OrderCreatedEvent persistOrder(CreateOrderCommand createOrderCommand) {
         checkCustomer(createOrderCommand.getCustomerId());
+        
         Store store = checkStore(createOrderCommand);
         Order order = orderDataMapper.createOrderCommandToOrder(createOrderCommand);
         OrderCreatedEvent orderCreatedEvent = orderDomainService.validateAndInitiateOrder(order, store);
         saveOrder(order);
         log.info("Order is created with id: {}", orderCreatedEvent.getOrder().getId().getValue());
-        //Revisar
-        NotificationOrderCreatedEvent notificationOrderCreatedEvent = new NotificationOrderCreatedEvent(order,ZonedDateTime.now(ZoneId.of(UTC)));
-        //Revisar notificationOrderCreatedEvent.send();
         return orderCreatedEvent;
     }
 
@@ -75,6 +73,7 @@ public class OrderCreateHelper {
     }
 
     private void checkCustomer(UUID customerId) {
+        log.info("(A)fmattaperdomo: {} ", customerId);
         Optional<Customer> customer = customerRepository.findCustomer(customerId);
         if (customer.isEmpty()) {
             log.warn("Could not find customer with customer id: {}", customerId);

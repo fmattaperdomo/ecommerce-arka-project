@@ -15,7 +15,7 @@ CREATE TABLE "order".orders
     customer_id uuid NOT NULL,
     store_id uuid NOT NULL,
     tracking_id uuid NOT NULL,
-    price numeric(10,2) NOT NULL,
+    total_ammount numeric(10,2) NOT NULL,
     order_status order_status NOT NULL,
     failure_messages character varying COLLATE pg_catalog."default",
     CONSTRAINT orders_pkey PRIMARY KEY (id)
@@ -27,10 +27,10 @@ CREATE TABLE "order".order_items
 (
     id bigint NOT NULL,
     order_id uuid NOT NULL,
-    product_id uuid NOT NULL,
-    price numeric(10,2) NOT NULL,
+    product_store_id uuid NOT NULL,
     quantity integer NOT NULL,
-    sub_total numeric(10,2) NOT NULL,
+    price numeric(10,2) NOT NULL,
+    subtotal numeric(10,2) NOT NULL,
     CONSTRAINT order_items_pkey PRIMARY KEY (id, order_id)
 );
 
@@ -48,8 +48,11 @@ CREATE TABLE "order".order_address
     id uuid NOT NULL,
     order_id uuid UNIQUE NOT NULL,
     street character varying COLLATE pg_catalog."default" NOT NULL,
-    postal_code character varying COLLATE pg_catalog."default" NOT NULL,
     city character varying COLLATE pg_catalog."default" NOT NULL,
+    state character varying COLLATE pg_catalog."default" NOT NULL,    
+    country character varying COLLATE pg_catalog."default" NOT NULL,        
+    zipcode character varying COLLATE pg_catalog."default" NOT NULL,
+
     CONSTRAINT order_address_pkey PRIMARY KEY (id, order_id)
 );
 
@@ -87,9 +90,6 @@ CREATE INDEX "payment_outbox_saga_status"
     ON "order".payment_outbox
         (type, outbox_status, saga_status);
 
---CREATE UNIQUE INDEX "payment_outbox_saga_id"
---    ON "order".payment_outbox
---    (type, saga_id, saga_status);
 
 DROP TABLE IF EXISTS "order".store_approval_outbox CASCADE;
 
@@ -112,17 +112,25 @@ CREATE INDEX "store_approval_outbox_saga_status"
     ON "order".store_approval_outbox
         (type, outbox_status, saga_status);
 
---CREATE UNIQUE INDEX "store_approval_outbox_saga_id"
---    ON "order".store_approval_outbox
---    (type, saga_id, saga_status);
+
+DROP TYPE IF EXISTS user_role;
+CREATE TYPE user_role AS ENUM ('CUSTOMER', 'SUPPLIER', 'ADMIN');
+
+DROP TYPE IF EXISTS type_identification;
+CREATE TYPE type_identification AS ENUM ('PASSPORT', 'DOCUMENT ID', 'NATIONAL ID', 'DRIVER LICENSE');
 
 DROP TABLE IF EXISTS "order".customers CASCADE;
 
 CREATE TABLE "order".customers
 (
     id uuid NOT NULL,
-    username character varying COLLATE pg_catalog."default" NOT NULL,
+    type_identification type_identification NOT NULL,
+    document_number character varying COLLATE pg_catalog."default" NOT NULL,
     first_name character varying COLLATE pg_catalog."default" NOT NULL,
     last_name character varying COLLATE pg_catalog."default" NOT NULL,
+    email character varying COLLATE pg_catalog."default" NOT NULL,
+    phone character varying COLLATE pg_catalog."default" NOT NULL,
+    user_role user_role NOT NULL,
     CONSTRAINT customers_pkey PRIMARY KEY (id)
 );
+

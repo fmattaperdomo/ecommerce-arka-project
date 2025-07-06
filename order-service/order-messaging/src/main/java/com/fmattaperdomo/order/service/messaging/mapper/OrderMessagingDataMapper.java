@@ -79,11 +79,16 @@ public class OrderMessagingDataMapper {
 
     public CustomerModel customerAvroModeltoCustomerModel(CustomerAvroModel customerAvroModel) {
         return CustomerModel.builder()
-                .id(customerAvroModel.getId())
-                //.username(customerAvroModel.getUsername())
+                .id(customerAvroModel.getId().toString())
+                .typeIdentification(customerAvroModel.getTypeIdentification())
+                .documentNumber(customerAvroModel.getDocumentNumber())
                 .firstName(customerAvroModel.getFirstName())
                 .lastName(customerAvroModel.getLastName())
+                .email(customerAvroModel.getEmail())
+                .phone(customerAvroModel.getPhone())
+                .userRole(customerAvroModel.getUserRole())
                 .build();
     }
 }
+
 

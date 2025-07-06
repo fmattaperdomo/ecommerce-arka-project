@@ -11,13 +11,13 @@ public class CustomerMessagingDataMapper {
                                                                                customerCreatedEvent) {
         return CustomerAvroModel.newBuilder()
                 .setId(customerCreatedEvent.getCustomer().getId().getValue().toString())
-                //revisar.set.setIdentification(customerCreatedEvent.getCustomer().getIdentification())
+                .setTypeIdentification(customerCreatedEvent.getCustomer().getTypeIdentification().name())
+                .setDocumentNumber(customerCreatedEvent.getCustomer().getDocumentNumber())
                 .setFirstName(customerCreatedEvent.getCustomer().getFirstName())
                 .setLastName(customerCreatedEvent.getCustomer().getLastName())
-                //revisar.setEmail(customerCreatedEvent.getCustomer().getEmail())
-                //revisar.setPhone(customerCreatedEvent.getCustomer().getPhone())
-                //revisar.setRole(customerCreatedEvent.getCustomer().getRole())
-                //revisar.setAddress(customerCreatedEvent.getCustomer().getAddress())
+                .setEmail(customerCreatedEvent.getCustomer().getEmail())
+                .setPhone(customerCreatedEvent.getCustomer().getPhone())
+                .setUserRole(customerCreatedEvent.getCustomer().getUserRole().name())
                 .build();
     }
 }

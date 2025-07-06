@@ -2,6 +2,7 @@ package com.fmattaperdomo.customer.service.domain.create;
 
 import com.fmattaperdomo.domain.valueobject.Address;
 import com.fmattaperdomo.domain.valueobject.Identification;
+import com.fmattaperdomo.domain.valueobject.TypeIdentification;
 import com.fmattaperdomo.domain.valueobject.UserRole;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -17,7 +18,9 @@ public class CreateCustomerCommand {
     @NotNull
     private final UUID customerId;
     @NotNull
-    private final Identification identification;
+    private final TypeIdentification typeIdentification;
+    @NotNull
+    private final String documentNumber;
     @NotNull
     private final String firstName;
     @NotNull
@@ -27,7 +30,5 @@ public class CreateCustomerCommand {
     @NotNull
     private final String phone;
     @NotNull
-    private final UserRole role;
-    @NotNull
-    private final Address address;
+    private final UserRole userRole;
 }

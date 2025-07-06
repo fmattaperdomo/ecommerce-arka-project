@@ -1,6 +1,6 @@
 package com.fmattaperdomo.store.service.dataaccess.store.mapper;
 
-import com.fmattaperdomo.dataaccess.store.entity.StoreEntity;
+import com.fmattaperdomo.dataaccess.store.entity.ProductStoreEntity;
 import com.fmattaperdomo.dataaccess.store.exception.StoreDataAccessException;
 import com.fmattaperdomo.domain.valueobject.*;
 import com.fmattaperdomo.store.service.dataaccess.store.entity.OrderApprovalEntity;
@@ -20,8 +20,8 @@ public class StoreDataAccessMapper {
                 .collect(Collectors.toList());
     }
 
-    public Store storeEntityToStore(List<StoreEntity> storeEntities) {
-        StoreEntity storeEntity =
+    public Store storeEntityToStore(List<ProductStoreEntity> storeEntities) {
+        ProductStoreEntity storeEntity =
                 storeEntities.stream().findFirst().orElseThrow(() ->
                         new StoreDataAccessException("No stores found!"));
 

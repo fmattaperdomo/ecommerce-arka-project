@@ -3,34 +3,30 @@ package com.fmattaperdomo.order.service.domain.entity;
 import com.fmattaperdomo.domain.entity.AggregateRoot;
 import com.fmattaperdomo.domain.valueobject.*;
 
-import java.time.ZonedDateTime;
-
 public class Customer extends AggregateRoot<CustomerId> {
 
-    private Identification customerDocument;
+    private String typeIdentification;
+    private String documentNumber;     
     private String firstName;
     private String lastName;
     private String email;
     private String phone;
-    private UserRole userRole;
-    private Address customerAddress;
-    private ZonedDateTime createdAt;
-    private ZonedDateTime updatedAt;
-
+    private String userRole;
 
     public Customer(Builder builder) {
         super.setId(builder.customerId);
-        customerDocument = builder.customerDocument;
+        typeIdentification = builder.typeIdentification;
+        documentNumber = builder.documentNumber;
         firstName = builder.firstName;
         lastName = builder.lastName;
         email = builder.email;
         phone = builder.phone;
         userRole = builder.userRole;
-        customerAddress = builder.customerAddress;
-        createdAt = ZonedDateTime.now();
-        updatedAt = ZonedDateTime.now();
     }
 
+    public Customer() {
+    }
+    
     public Customer(CustomerId customerId) {
         super.setId(customerId);
     }
@@ -39,8 +35,12 @@ public class Customer extends AggregateRoot<CustomerId> {
         return new Builder();
     }
 
-    public Identification getCustomerDocument() {
-        return customerDocument;
+    public String getTypeIdentification() {
+        return typeIdentification;
+    }
+
+    public String getDocumentNumber() {
+        return documentNumber;
     }
 
     public String getFirstName() {
@@ -59,33 +59,19 @@ public class Customer extends AggregateRoot<CustomerId> {
         return phone;
     }
 
-    public UserRole getUserRole() {
+    public String getUserRole() {
         return userRole;
-    }
-
-    public Address getCustomerAddress() {
-        return customerAddress;
-    }
-
-    public ZonedDateTime getCreatedAt() {
-        return createdAt;
-    }
-
-    public ZonedDateTime getUpdatedAt() {
-        return updatedAt;
     }
 
     public static final class Builder {
         private CustomerId customerId;
-        private Identification customerDocument;
+        private String typeIdentification;
+        private String documentNumber;
         private String firstName;
         private String lastName;
         private String email;
         private String phone;
-        private UserRole userRole;
-        private Address customerAddress;
-        private ZonedDateTime createdAt;
-        private ZonedDateTime updatedAt;
+        private String userRole;
 
         public Builder() {
         }
@@ -95,8 +81,13 @@ public class Customer extends AggregateRoot<CustomerId> {
             return this;
         }
 
-        public Builder customerDocument(Identification val) {
-            customerDocument = val;
+        public Builder typeIdentification(String val) {
+            typeIdentification = val;
+            return this;
+        }
+
+        public Builder documentNumber(String val) {
+            documentNumber = val;
             return this;
         }
 
@@ -120,23 +111,8 @@ public class Customer extends AggregateRoot<CustomerId> {
             return this;
         }
 
-        public Builder userRole(UserRole val) {
+        public Builder userRole(String val) {
             userRole = val;
-            return this;
-        }
-
-        public Builder customerAddress(Address val) {
-            customerAddress = val;
-            return this;
-        }
-
-        public Builder createdAt(ZonedDateTime val) {
-            createdAt = val;
-            return this;
-        }
-
-        public Builder updatedAt(ZonedDateTime val) {
-            updatedAt = val;
             return this;
         }
 

@@ -3,7 +3,6 @@ package com.fmattaperdomo.order.service.messaging.listener.kafka;
 import com.fmattaperdomo.kafka.consumer.KafkaConsumer;
 import com.fmattaperdomo.kafka.order.avro.model.OrderApprovalStatus;
 import com.fmattaperdomo.kafka.order.avro.model.StoreApprovalResponseAvroModel;
-import com.fmattaperdomo.order.service.domain.entity.Order;
 import com.fmattaperdomo.order.service.domain.exception.OrderNotFoundException;
 import com.fmattaperdomo.order.service.domain.ports.input.message.listener.storeapproval.StoreApprovalResponseMessageListener;
 import com.fmattaperdomo.order.service.messaging.mapper.OrderMessagingDataMapper;
@@ -62,11 +61,9 @@ public class StoreApprovalResponseKafkaListener  implements KafkaConsumer<StoreA
                             .approvalResponseAvroModelToApprovalResponse(storeApprovalResponseAvroModel));
                 }
             } catch (OptimisticLockingFailureException e) {
-                //NO-OP for optimistic lock. This means another thread finished the work, do not throw error to prevent reading the data from kafka again!
                 log.error("Caught optimistic locking exception in StoreApprovalResponseKafkaListener for order id: {}",
                         storeApprovalResponseAvroModel.getOrderId());
             } catch (OrderNotFoundException e) {
-                //NO-OP for OrderNotFoundException
                 log.error("No order found for order id: {}", storeApprovalResponseAvroModel.getOrderId());
             }
         });

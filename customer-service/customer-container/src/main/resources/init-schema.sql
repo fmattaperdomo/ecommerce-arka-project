@@ -7,15 +7,13 @@ CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 CREATE TABLE customer.customers
 (
     id uuid NOT NULL,
-    identificationId uuid NOT NULL,
+    type_identification character varying COLLATE pg_catalog."default" NOT NULL,
+    document_number character varying COLLATE pg_catalog."default" NOT NULL,
     first_name character varying COLLATE pg_catalog."default" NOT NULL,
     last_name character varying COLLATE pg_catalog."default" NOT NULL,
     email character varying COLLATE pg_catalog."default" NOT NULL,
     phone character varying COLLATE pg_catalog."default" NOT NULL,
     user_role character varying COLLATE pg_catalog."default" NOT NULL,
-    addressId uuid NOT NULL,
-    createdAt timestamp NOT NULL,
-    updatedAt timestamp NOT NULL
     CONSTRAINT customers_pkey PRIMARY KEY (id)
 );
 
@@ -25,13 +23,13 @@ CREATE MATERIALIZED VIEW customer.order_customer_m_view
 TABLESPACE pg_default
 AS
 SELECT id,
-       identificationId
+       type_identification,
+       document_number,
        first_name,
        last_name,
        email,
        phone,
-       user_role,
-       addressId
+       user_role
 FROM customer.customers
     WITH DATA;
 

@@ -24,8 +24,8 @@ public class OrderItemEntity {
     private OrderEntity order;
 
     private UUID productStoreId;
-    private BigDecimal price;
     private Integer quantity;
+    private BigDecimal price;
     private BigDecimal subTotal;
 
     @Override

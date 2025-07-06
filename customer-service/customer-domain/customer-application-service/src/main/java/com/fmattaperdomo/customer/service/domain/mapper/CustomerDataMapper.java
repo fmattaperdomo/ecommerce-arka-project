@@ -11,13 +11,13 @@ public class CustomerDataMapper {
 
     public Customer createCustomerCommandToCustomer(CreateCustomerCommand createCustomerCommand) {
         return new Customer(new CustomerId(createCustomerCommand.getCustomerId()),
-                createCustomerCommand.getIdentification(),
+                createCustomerCommand.getTypeIdentification(),
+                createCustomerCommand.getDocumentNumber(),
                 createCustomerCommand.getFirstName(),
                 createCustomerCommand.getLastName(),
                 createCustomerCommand.getEmail(),
                 createCustomerCommand.getPhone(),
-                createCustomerCommand.getRole(),
-                createCustomerCommand.getAddress()
+                createCustomerCommand.getUserRole()
         );
     }
 

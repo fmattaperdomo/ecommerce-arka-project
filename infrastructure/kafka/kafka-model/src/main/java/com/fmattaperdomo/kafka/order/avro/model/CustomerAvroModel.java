@@ -13,16 +13,13 @@ import org.apache.avro.message.SchemaStore;
 
 @org.apache.avro.specific.AvroGenerated
 public class CustomerAvroModel extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = 8762636940607043181L;
+  private static final long serialVersionUID = 3517976636049054878L;
 
 
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"CustomerAvroModel\",\"namespace\":\"com.fmattaperdomo.kafka.order.avro.model\",\"fields\":[{\"name\":\"id\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"customerDocument\",\"type\":{\"type\":\"record\",\"name\":\"CustomerDocument\",\"fields\":[{\"name\":\"id\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"logicalType\":\"uuid\"},{\"name\":\"typeIdentification\",\"type\":{\"type\":\"enum\",\"name\":\"TypeIdentification\",\"symbols\":[\"DNI\",\"CITIZENSHIP\",\"PASSPORT\",\"IDENTITY\",\"OTHER\"]}},{\"name\":\"documentNumber\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]}},{\"name\":\"firstName\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"lastName\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"email\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"phone\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"userRole\",\"type\":{\"type\":\"enum\",\"name\":\"UserRole\",\"symbols\":[\"CUSTOMER\"]}},{\"name\":\"customerAddress\",\"type\":{\"type\":\"record\",\"name\":\"CustomerAddress\",\"fields\":[{\"name\":\"id\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"logicalType\":\"uuid\"},{\"name\":\"street\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"city\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"state\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"country\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"zipcode\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]}},{\"name\":\"createdAt\",\"type\":{\"type\":\"long\",\"logicalType\":\"timestamp-millis\"}},{\"name\":\"updatedAt\",\"type\":{\"type\":\"long\",\"logicalType\":\"timestamp-millis\"}}]}");
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"CustomerAvroModel\",\"namespace\":\"com.fmattaperdomo.kafka.order.avro.model\",\"fields\":[{\"name\":\"id\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"typeIdentification\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"documentNumber\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"firstName\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"lastName\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"email\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"phone\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"userRole\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static final SpecificData MODEL$ = new SpecificData();
-  static {
-    MODEL$.addLogicalTypeConversion(new org.apache.avro.data.TimeConversions.TimestampMillisConversion());
-  }
 
   private static final BinaryMessageEncoder<CustomerAvroModel> ENCODER =
       new BinaryMessageEncoder<>(MODEL$, SCHEMA$);
@@ -76,15 +73,13 @@ public class CustomerAvroModel extends org.apache.avro.specific.SpecificRecordBa
   }
 
   private java.lang.String id;
-  private com.fmattaperdomo.kafka.order.avro.model.CustomerDocument customerDocument;
+  private java.lang.String typeIdentification;
+  private java.lang.String documentNumber;
   private java.lang.String firstName;
   private java.lang.String lastName;
   private java.lang.String email;
   private java.lang.String phone;
-  private com.fmattaperdomo.kafka.order.avro.model.UserRole userRole;
-  private com.fmattaperdomo.kafka.order.avro.model.CustomerAddress customerAddress;
-  private java.time.Instant createdAt;
-  private java.time.Instant updatedAt;
+  private java.lang.String userRole;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -96,27 +91,23 @@ public class CustomerAvroModel extends org.apache.avro.specific.SpecificRecordBa
   /**
    * All-args constructor.
    * @param id The new value for id
-   * @param customerDocument The new value for customerDocument
+   * @param typeIdentification The new value for typeIdentification
+   * @param documentNumber The new value for documentNumber
    * @param firstName The new value for firstName
    * @param lastName The new value for lastName
    * @param email The new value for email
    * @param phone The new value for phone
    * @param userRole The new value for userRole
-   * @param customerAddress The new value for customerAddress
-   * @param createdAt The new value for createdAt
-   * @param updatedAt The new value for updatedAt
    */
-  public CustomerAvroModel(java.lang.String id, com.fmattaperdomo.kafka.order.avro.model.CustomerDocument customerDocument, java.lang.String firstName, java.lang.String lastName, java.lang.String email, java.lang.String phone, com.fmattaperdomo.kafka.order.avro.model.UserRole userRole, com.fmattaperdomo.kafka.order.avro.model.CustomerAddress customerAddress, java.time.Instant createdAt, java.time.Instant updatedAt) {
+  public CustomerAvroModel(java.lang.String id, java.lang.String typeIdentification, java.lang.String documentNumber, java.lang.String firstName, java.lang.String lastName, java.lang.String email, java.lang.String phone, java.lang.String userRole) {
     this.id = id;
-    this.customerDocument = customerDocument;
+    this.typeIdentification = typeIdentification;
+    this.documentNumber = documentNumber;
     this.firstName = firstName;
     this.lastName = lastName;
     this.email = email;
     this.phone = phone;
     this.userRole = userRole;
-    this.customerAddress = customerAddress;
-    this.createdAt = createdAt.truncatedTo(java.time.temporal.ChronoUnit.MILLIS);
-    this.updatedAt = updatedAt.truncatedTo(java.time.temporal.ChronoUnit.MILLIS);
   }
 
   @Override
@@ -130,37 +121,15 @@ public class CustomerAvroModel extends org.apache.avro.specific.SpecificRecordBa
   public java.lang.Object get(int field$) {
     switch (field$) {
     case 0: return id;
-    case 1: return customerDocument;
-    case 2: return firstName;
-    case 3: return lastName;
-    case 4: return email;
-    case 5: return phone;
-    case 6: return userRole;
-    case 7: return customerAddress;
-    case 8: return createdAt;
-    case 9: return updatedAt;
+    case 1: return typeIdentification;
+    case 2: return documentNumber;
+    case 3: return firstName;
+    case 4: return lastName;
+    case 5: return email;
+    case 6: return phone;
+    case 7: return userRole;
     default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
-  }
-
-  private static final org.apache.avro.Conversion<?>[] conversions =
-      new org.apache.avro.Conversion<?>[] {
-      null,
-      null,
-      null,
-      null,
-      null,
-      null,
-      null,
-      null,
-      new org.apache.avro.data.TimeConversions.TimestampMillisConversion(),
-      new org.apache.avro.data.TimeConversions.TimestampMillisConversion(),
-      null
-  };
-
-  @Override
-  public org.apache.avro.Conversion<?> getConversion(int field) {
-    return conversions[field];
   }
 
   // Used by DatumReader.  Applications should not call.
@@ -169,15 +138,13 @@ public class CustomerAvroModel extends org.apache.avro.specific.SpecificRecordBa
   public void put(int field$, java.lang.Object value$) {
     switch (field$) {
     case 0: id = value$ != null ? value$.toString() : null; break;
-    case 1: customerDocument = (com.fmattaperdomo.kafka.order.avro.model.CustomerDocument)value$; break;
-    case 2: firstName = value$ != null ? value$.toString() : null; break;
-    case 3: lastName = value$ != null ? value$.toString() : null; break;
-    case 4: email = value$ != null ? value$.toString() : null; break;
-    case 5: phone = value$ != null ? value$.toString() : null; break;
-    case 6: userRole = (com.fmattaperdomo.kafka.order.avro.model.UserRole)value$; break;
-    case 7: customerAddress = (com.fmattaperdomo.kafka.order.avro.model.CustomerAddress)value$; break;
-    case 8: createdAt = (java.time.Instant)value$; break;
-    case 9: updatedAt = (java.time.Instant)value$; break;
+    case 1: typeIdentification = value$ != null ? value$.toString() : null; break;
+    case 2: documentNumber = value$ != null ? value$.toString() : null; break;
+    case 3: firstName = value$ != null ? value$.toString() : null; break;
+    case 4: lastName = value$ != null ? value$.toString() : null; break;
+    case 5: email = value$ != null ? value$.toString() : null; break;
+    case 6: phone = value$ != null ? value$.toString() : null; break;
+    case 7: userRole = value$ != null ? value$.toString() : null; break;
     default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
   }
@@ -200,20 +167,37 @@ public class CustomerAvroModel extends org.apache.avro.specific.SpecificRecordBa
   }
 
   /**
-   * Gets the value of the 'customerDocument' field.
-   * @return The value of the 'customerDocument' field.
+   * Gets the value of the 'typeIdentification' field.
+   * @return The value of the 'typeIdentification' field.
    */
-  public com.fmattaperdomo.kafka.order.avro.model.CustomerDocument getCustomerDocument() {
-    return customerDocument;
+  public java.lang.String getTypeIdentification() {
+    return typeIdentification;
   }
 
 
   /**
-   * Sets the value of the 'customerDocument' field.
+   * Sets the value of the 'typeIdentification' field.
    * @param value the value to set.
    */
-  public void setCustomerDocument(com.fmattaperdomo.kafka.order.avro.model.CustomerDocument value) {
-    this.customerDocument = value;
+  public void setTypeIdentification(java.lang.String value) {
+    this.typeIdentification = value;
+  }
+
+  /**
+   * Gets the value of the 'documentNumber' field.
+   * @return The value of the 'documentNumber' field.
+   */
+  public java.lang.String getDocumentNumber() {
+    return documentNumber;
+  }
+
+
+  /**
+   * Sets the value of the 'documentNumber' field.
+   * @param value the value to set.
+   */
+  public void setDocumentNumber(java.lang.String value) {
+    this.documentNumber = value;
   }
 
   /**
@@ -288,7 +272,7 @@ public class CustomerAvroModel extends org.apache.avro.specific.SpecificRecordBa
    * Gets the value of the 'userRole' field.
    * @return The value of the 'userRole' field.
    */
-  public com.fmattaperdomo.kafka.order.avro.model.UserRole getUserRole() {
+  public java.lang.String getUserRole() {
     return userRole;
   }
 
@@ -297,59 +281,8 @@ public class CustomerAvroModel extends org.apache.avro.specific.SpecificRecordBa
    * Sets the value of the 'userRole' field.
    * @param value the value to set.
    */
-  public void setUserRole(com.fmattaperdomo.kafka.order.avro.model.UserRole value) {
+  public void setUserRole(java.lang.String value) {
     this.userRole = value;
-  }
-
-  /**
-   * Gets the value of the 'customerAddress' field.
-   * @return The value of the 'customerAddress' field.
-   */
-  public com.fmattaperdomo.kafka.order.avro.model.CustomerAddress getCustomerAddress() {
-    return customerAddress;
-  }
-
-
-  /**
-   * Sets the value of the 'customerAddress' field.
-   * @param value the value to set.
-   */
-  public void setCustomerAddress(com.fmattaperdomo.kafka.order.avro.model.CustomerAddress value) {
-    this.customerAddress = value;
-  }
-
-  /**
-   * Gets the value of the 'createdAt' field.
-   * @return The value of the 'createdAt' field.
-   */
-  public java.time.Instant getCreatedAt() {
-    return createdAt;
-  }
-
-
-  /**
-   * Sets the value of the 'createdAt' field.
-   * @param value the value to set.
-   */
-  public void setCreatedAt(java.time.Instant value) {
-    this.createdAt = value.truncatedTo(java.time.temporal.ChronoUnit.MILLIS);
-  }
-
-  /**
-   * Gets the value of the 'updatedAt' field.
-   * @return The value of the 'updatedAt' field.
-   */
-  public java.time.Instant getUpdatedAt() {
-    return updatedAt;
-  }
-
-
-  /**
-   * Sets the value of the 'updatedAt' field.
-   * @param value the value to set.
-   */
-  public void setUpdatedAt(java.time.Instant value) {
-    this.updatedAt = value.truncatedTo(java.time.temporal.ChronoUnit.MILLIS);
   }
 
   /**
@@ -394,17 +327,13 @@ public class CustomerAvroModel extends org.apache.avro.specific.SpecificRecordBa
     implements org.apache.avro.data.RecordBuilder<CustomerAvroModel> {
 
     private java.lang.String id;
-    private com.fmattaperdomo.kafka.order.avro.model.CustomerDocument customerDocument;
-    private com.fmattaperdomo.kafka.order.avro.model.CustomerDocument.Builder customerDocumentBuilder;
+    private java.lang.String typeIdentification;
+    private java.lang.String documentNumber;
     private java.lang.String firstName;
     private java.lang.String lastName;
     private java.lang.String email;
     private java.lang.String phone;
-    private com.fmattaperdomo.kafka.order.avro.model.UserRole userRole;
-    private com.fmattaperdomo.kafka.order.avro.model.CustomerAddress customerAddress;
-    private com.fmattaperdomo.kafka.order.avro.model.CustomerAddress.Builder customerAddressBuilder;
-    private java.time.Instant createdAt;
-    private java.time.Instant updatedAt;
+    private java.lang.String userRole;
 
     /** Creates a new Builder */
     private Builder() {
@@ -421,47 +350,33 @@ public class CustomerAvroModel extends org.apache.avro.specific.SpecificRecordBa
         this.id = data().deepCopy(fields()[0].schema(), other.id);
         fieldSetFlags()[0] = other.fieldSetFlags()[0];
       }
-      if (isValidValue(fields()[1], other.customerDocument)) {
-        this.customerDocument = data().deepCopy(fields()[1].schema(), other.customerDocument);
+      if (isValidValue(fields()[1], other.typeIdentification)) {
+        this.typeIdentification = data().deepCopy(fields()[1].schema(), other.typeIdentification);
         fieldSetFlags()[1] = other.fieldSetFlags()[1];
       }
-      if (other.hasCustomerDocumentBuilder()) {
-        this.customerDocumentBuilder = com.fmattaperdomo.kafka.order.avro.model.CustomerDocument.newBuilder(other.getCustomerDocumentBuilder());
-      }
-      if (isValidValue(fields()[2], other.firstName)) {
-        this.firstName = data().deepCopy(fields()[2].schema(), other.firstName);
+      if (isValidValue(fields()[2], other.documentNumber)) {
+        this.documentNumber = data().deepCopy(fields()[2].schema(), other.documentNumber);
         fieldSetFlags()[2] = other.fieldSetFlags()[2];
       }
-      if (isValidValue(fields()[3], other.lastName)) {
-        this.lastName = data().deepCopy(fields()[3].schema(), other.lastName);
+      if (isValidValue(fields()[3], other.firstName)) {
+        this.firstName = data().deepCopy(fields()[3].schema(), other.firstName);
         fieldSetFlags()[3] = other.fieldSetFlags()[3];
       }
-      if (isValidValue(fields()[4], other.email)) {
-        this.email = data().deepCopy(fields()[4].schema(), other.email);
+      if (isValidValue(fields()[4], other.lastName)) {
+        this.lastName = data().deepCopy(fields()[4].schema(), other.lastName);
         fieldSetFlags()[4] = other.fieldSetFlags()[4];
       }
-      if (isValidValue(fields()[5], other.phone)) {
-        this.phone = data().deepCopy(fields()[5].schema(), other.phone);
+      if (isValidValue(fields()[5], other.email)) {
+        this.email = data().deepCopy(fields()[5].schema(), other.email);
         fieldSetFlags()[5] = other.fieldSetFlags()[5];
       }
-      if (isValidValue(fields()[6], other.userRole)) {
-        this.userRole = data().deepCopy(fields()[6].schema(), other.userRole);
+      if (isValidValue(fields()[6], other.phone)) {
+        this.phone = data().deepCopy(fields()[6].schema(), other.phone);
         fieldSetFlags()[6] = other.fieldSetFlags()[6];
       }
-      if (isValidValue(fields()[7], other.customerAddress)) {
-        this.customerAddress = data().deepCopy(fields()[7].schema(), other.customerAddress);
+      if (isValidValue(fields()[7], other.userRole)) {
+        this.userRole = data().deepCopy(fields()[7].schema(), other.userRole);
         fieldSetFlags()[7] = other.fieldSetFlags()[7];
-      }
-      if (other.hasCustomerAddressBuilder()) {
-        this.customerAddressBuilder = com.fmattaperdomo.kafka.order.avro.model.CustomerAddress.newBuilder(other.getCustomerAddressBuilder());
-      }
-      if (isValidValue(fields()[8], other.createdAt)) {
-        this.createdAt = data().deepCopy(fields()[8].schema(), other.createdAt);
-        fieldSetFlags()[8] = other.fieldSetFlags()[8];
-      }
-      if (isValidValue(fields()[9], other.updatedAt)) {
-        this.updatedAt = data().deepCopy(fields()[9].schema(), other.updatedAt);
-        fieldSetFlags()[9] = other.fieldSetFlags()[9];
       }
     }
 
@@ -475,43 +390,33 @@ public class CustomerAvroModel extends org.apache.avro.specific.SpecificRecordBa
         this.id = data().deepCopy(fields()[0].schema(), other.id);
         fieldSetFlags()[0] = true;
       }
-      if (isValidValue(fields()[1], other.customerDocument)) {
-        this.customerDocument = data().deepCopy(fields()[1].schema(), other.customerDocument);
+      if (isValidValue(fields()[1], other.typeIdentification)) {
+        this.typeIdentification = data().deepCopy(fields()[1].schema(), other.typeIdentification);
         fieldSetFlags()[1] = true;
       }
-      this.customerDocumentBuilder = null;
-      if (isValidValue(fields()[2], other.firstName)) {
-        this.firstName = data().deepCopy(fields()[2].schema(), other.firstName);
+      if (isValidValue(fields()[2], other.documentNumber)) {
+        this.documentNumber = data().deepCopy(fields()[2].schema(), other.documentNumber);
         fieldSetFlags()[2] = true;
       }
-      if (isValidValue(fields()[3], other.lastName)) {
-        this.lastName = data().deepCopy(fields()[3].schema(), other.lastName);
+      if (isValidValue(fields()[3], other.firstName)) {
+        this.firstName = data().deepCopy(fields()[3].schema(), other.firstName);
         fieldSetFlags()[3] = true;
       }
-      if (isValidValue(fields()[4], other.email)) {
-        this.email = data().deepCopy(fields()[4].schema(), other.email);
+      if (isValidValue(fields()[4], other.lastName)) {
+        this.lastName = data().deepCopy(fields()[4].schema(), other.lastName);
         fieldSetFlags()[4] = true;
       }
-      if (isValidValue(fields()[5], other.phone)) {
-        this.phone = data().deepCopy(fields()[5].schema(), other.phone);
+      if (isValidValue(fields()[5], other.email)) {
+        this.email = data().deepCopy(fields()[5].schema(), other.email);
         fieldSetFlags()[5] = true;
       }
-      if (isValidValue(fields()[6], other.userRole)) {
-        this.userRole = data().deepCopy(fields()[6].schema(), other.userRole);
+      if (isValidValue(fields()[6], other.phone)) {
+        this.phone = data().deepCopy(fields()[6].schema(), other.phone);
         fieldSetFlags()[6] = true;
       }
-      if (isValidValue(fields()[7], other.customerAddress)) {
-        this.customerAddress = data().deepCopy(fields()[7].schema(), other.customerAddress);
+      if (isValidValue(fields()[7], other.userRole)) {
+        this.userRole = data().deepCopy(fields()[7].schema(), other.userRole);
         fieldSetFlags()[7] = true;
-      }
-      this.customerAddressBuilder = null;
-      if (isValidValue(fields()[8], other.createdAt)) {
-        this.createdAt = data().deepCopy(fields()[8].schema(), other.createdAt);
-        fieldSetFlags()[8] = true;
-      }
-      if (isValidValue(fields()[9], other.updatedAt)) {
-        this.updatedAt = data().deepCopy(fields()[9].schema(), other.updatedAt);
-        fieldSetFlags()[9] = true;
       }
     }
 
@@ -556,78 +461,82 @@ public class CustomerAvroModel extends org.apache.avro.specific.SpecificRecordBa
     }
 
     /**
-      * Gets the value of the 'customerDocument' field.
+      * Gets the value of the 'typeIdentification' field.
       * @return The value.
       */
-    public com.fmattaperdomo.kafka.order.avro.model.CustomerDocument getCustomerDocument() {
-      return customerDocument;
+    public java.lang.String getTypeIdentification() {
+      return typeIdentification;
     }
 
 
     /**
-      * Sets the value of the 'customerDocument' field.
-      * @param value The value of 'customerDocument'.
+      * Sets the value of the 'typeIdentification' field.
+      * @param value The value of 'typeIdentification'.
       * @return This builder.
       */
-    public com.fmattaperdomo.kafka.order.avro.model.CustomerAvroModel.Builder setCustomerDocument(com.fmattaperdomo.kafka.order.avro.model.CustomerDocument value) {
+    public com.fmattaperdomo.kafka.order.avro.model.CustomerAvroModel.Builder setTypeIdentification(java.lang.String value) {
       validate(fields()[1], value);
-      this.customerDocumentBuilder = null;
-      this.customerDocument = value;
+      this.typeIdentification = value;
       fieldSetFlags()[1] = true;
       return this;
     }
 
     /**
-      * Checks whether the 'customerDocument' field has been set.
-      * @return True if the 'customerDocument' field has been set, false otherwise.
+      * Checks whether the 'typeIdentification' field has been set.
+      * @return True if the 'typeIdentification' field has been set, false otherwise.
       */
-    public boolean hasCustomerDocument() {
+    public boolean hasTypeIdentification() {
       return fieldSetFlags()[1];
     }
 
-    /**
-     * Gets the Builder instance for the 'customerDocument' field and creates one if it doesn't exist yet.
-     * @return This builder.
-     */
-    public com.fmattaperdomo.kafka.order.avro.model.CustomerDocument.Builder getCustomerDocumentBuilder() {
-      if (customerDocumentBuilder == null) {
-        if (hasCustomerDocument()) {
-          setCustomerDocumentBuilder(com.fmattaperdomo.kafka.order.avro.model.CustomerDocument.newBuilder(customerDocument));
-        } else {
-          setCustomerDocumentBuilder(com.fmattaperdomo.kafka.order.avro.model.CustomerDocument.newBuilder());
-        }
-      }
-      return customerDocumentBuilder;
-    }
 
     /**
-     * Sets the Builder instance for the 'customerDocument' field
-     * @param value The builder instance that must be set.
-     * @return This builder.
-     */
-
-    public com.fmattaperdomo.kafka.order.avro.model.CustomerAvroModel.Builder setCustomerDocumentBuilder(com.fmattaperdomo.kafka.order.avro.model.CustomerDocument.Builder value) {
-      clearCustomerDocument();
-      customerDocumentBuilder = value;
+      * Clears the value of the 'typeIdentification' field.
+      * @return This builder.
+      */
+    public com.fmattaperdomo.kafka.order.avro.model.CustomerAvroModel.Builder clearTypeIdentification() {
+      typeIdentification = null;
+      fieldSetFlags()[1] = false;
       return this;
     }
 
     /**
-     * Checks whether the 'customerDocument' field has an active Builder instance
-     * @return True if the 'customerDocument' field has an active Builder instance
-     */
-    public boolean hasCustomerDocumentBuilder() {
-      return customerDocumentBuilder != null;
+      * Gets the value of the 'documentNumber' field.
+      * @return The value.
+      */
+    public java.lang.String getDocumentNumber() {
+      return documentNumber;
+    }
+
+
+    /**
+      * Sets the value of the 'documentNumber' field.
+      * @param value The value of 'documentNumber'.
+      * @return This builder.
+      */
+    public com.fmattaperdomo.kafka.order.avro.model.CustomerAvroModel.Builder setDocumentNumber(java.lang.String value) {
+      validate(fields()[2], value);
+      this.documentNumber = value;
+      fieldSetFlags()[2] = true;
+      return this;
     }
 
     /**
-      * Clears the value of the 'customerDocument' field.
+      * Checks whether the 'documentNumber' field has been set.
+      * @return True if the 'documentNumber' field has been set, false otherwise.
+      */
+    public boolean hasDocumentNumber() {
+      return fieldSetFlags()[2];
+    }
+
+
+    /**
+      * Clears the value of the 'documentNumber' field.
       * @return This builder.
       */
-    public com.fmattaperdomo.kafka.order.avro.model.CustomerAvroModel.Builder clearCustomerDocument() {
-      customerDocument = null;
-      customerDocumentBuilder = null;
-      fieldSetFlags()[1] = false;
+    public com.fmattaperdomo.kafka.order.avro.model.CustomerAvroModel.Builder clearDocumentNumber() {
+      documentNumber = null;
+      fieldSetFlags()[2] = false;
       return this;
     }
 
@@ -646,9 +555,9 @@ public class CustomerAvroModel extends org.apache.avro.specific.SpecificRecordBa
       * @return This builder.
       */
     public com.fmattaperdomo.kafka.order.avro.model.CustomerAvroModel.Builder setFirstName(java.lang.String value) {
-      validate(fields()[2], value);
+      validate(fields()[3], value);
       this.firstName = value;
-      fieldSetFlags()[2] = true;
+      fieldSetFlags()[3] = true;
       return this;
     }
 
@@ -657,7 +566,7 @@ public class CustomerAvroModel extends org.apache.avro.specific.SpecificRecordBa
       * @return True if the 'firstName' field has been set, false otherwise.
       */
     public boolean hasFirstName() {
-      return fieldSetFlags()[2];
+      return fieldSetFlags()[3];
     }
 
 
@@ -667,7 +576,7 @@ public class CustomerAvroModel extends org.apache.avro.specific.SpecificRecordBa
       */
     public com.fmattaperdomo.kafka.order.avro.model.CustomerAvroModel.Builder clearFirstName() {
       firstName = null;
-      fieldSetFlags()[2] = false;
+      fieldSetFlags()[3] = false;
       return this;
     }
 
@@ -686,9 +595,9 @@ public class CustomerAvroModel extends org.apache.avro.specific.SpecificRecordBa
       * @return This builder.
       */
     public com.fmattaperdomo.kafka.order.avro.model.CustomerAvroModel.Builder setLastName(java.lang.String value) {
-      validate(fields()[3], value);
+      validate(fields()[4], value);
       this.lastName = value;
-      fieldSetFlags()[3] = true;
+      fieldSetFlags()[4] = true;
       return this;
     }
 
@@ -697,7 +606,7 @@ public class CustomerAvroModel extends org.apache.avro.specific.SpecificRecordBa
       * @return True if the 'lastName' field has been set, false otherwise.
       */
     public boolean hasLastName() {
-      return fieldSetFlags()[3];
+      return fieldSetFlags()[4];
     }
 
 
@@ -707,7 +616,7 @@ public class CustomerAvroModel extends org.apache.avro.specific.SpecificRecordBa
       */
     public com.fmattaperdomo.kafka.order.avro.model.CustomerAvroModel.Builder clearLastName() {
       lastName = null;
-      fieldSetFlags()[3] = false;
+      fieldSetFlags()[4] = false;
       return this;
     }
 
@@ -726,9 +635,9 @@ public class CustomerAvroModel extends org.apache.avro.specific.SpecificRecordBa
       * @return This builder.
       */
     public com.fmattaperdomo.kafka.order.avro.model.CustomerAvroModel.Builder setEmail(java.lang.String value) {
-      validate(fields()[4], value);
+      validate(fields()[5], value);
       this.email = value;
-      fieldSetFlags()[4] = true;
+      fieldSetFlags()[5] = true;
       return this;
     }
 
@@ -737,7 +646,7 @@ public class CustomerAvroModel extends org.apache.avro.specific.SpecificRecordBa
       * @return True if the 'email' field has been set, false otherwise.
       */
     public boolean hasEmail() {
-      return fieldSetFlags()[4];
+      return fieldSetFlags()[5];
     }
 
 
@@ -747,7 +656,7 @@ public class CustomerAvroModel extends org.apache.avro.specific.SpecificRecordBa
       */
     public com.fmattaperdomo.kafka.order.avro.model.CustomerAvroModel.Builder clearEmail() {
       email = null;
-      fieldSetFlags()[4] = false;
+      fieldSetFlags()[5] = false;
       return this;
     }
 
@@ -766,9 +675,9 @@ public class CustomerAvroModel extends org.apache.avro.specific.SpecificRecordBa
       * @return This builder.
       */
     public com.fmattaperdomo.kafka.order.avro.model.CustomerAvroModel.Builder setPhone(java.lang.String value) {
-      validate(fields()[5], value);
+      validate(fields()[6], value);
       this.phone = value;
-      fieldSetFlags()[5] = true;
+      fieldSetFlags()[6] = true;
       return this;
     }
 
@@ -777,7 +686,7 @@ public class CustomerAvroModel extends org.apache.avro.specific.SpecificRecordBa
       * @return True if the 'phone' field has been set, false otherwise.
       */
     public boolean hasPhone() {
-      return fieldSetFlags()[5];
+      return fieldSetFlags()[6];
     }
 
 
@@ -787,7 +696,7 @@ public class CustomerAvroModel extends org.apache.avro.specific.SpecificRecordBa
       */
     public com.fmattaperdomo.kafka.order.avro.model.CustomerAvroModel.Builder clearPhone() {
       phone = null;
-      fieldSetFlags()[5] = false;
+      fieldSetFlags()[6] = false;
       return this;
     }
 
@@ -795,7 +704,7 @@ public class CustomerAvroModel extends org.apache.avro.specific.SpecificRecordBa
       * Gets the value of the 'userRole' field.
       * @return The value.
       */
-    public com.fmattaperdomo.kafka.order.avro.model.UserRole getUserRole() {
+    public java.lang.String getUserRole() {
       return userRole;
     }
 
@@ -805,10 +714,10 @@ public class CustomerAvroModel extends org.apache.avro.specific.SpecificRecordBa
       * @param value The value of 'userRole'.
       * @return This builder.
       */
-    public com.fmattaperdomo.kafka.order.avro.model.CustomerAvroModel.Builder setUserRole(com.fmattaperdomo.kafka.order.avro.model.UserRole value) {
-      validate(fields()[6], value);
+    public com.fmattaperdomo.kafka.order.avro.model.CustomerAvroModel.Builder setUserRole(java.lang.String value) {
+      validate(fields()[7], value);
       this.userRole = value;
-      fieldSetFlags()[6] = true;
+      fieldSetFlags()[7] = true;
       return this;
     }
 
@@ -817,7 +726,7 @@ public class CustomerAvroModel extends org.apache.avro.specific.SpecificRecordBa
       * @return True if the 'userRole' field has been set, false otherwise.
       */
     public boolean hasUserRole() {
-      return fieldSetFlags()[6];
+      return fieldSetFlags()[7];
     }
 
 
@@ -827,161 +736,7 @@ public class CustomerAvroModel extends org.apache.avro.specific.SpecificRecordBa
       */
     public com.fmattaperdomo.kafka.order.avro.model.CustomerAvroModel.Builder clearUserRole() {
       userRole = null;
-      fieldSetFlags()[6] = false;
-      return this;
-    }
-
-    /**
-      * Gets the value of the 'customerAddress' field.
-      * @return The value.
-      */
-    public com.fmattaperdomo.kafka.order.avro.model.CustomerAddress getCustomerAddress() {
-      return customerAddress;
-    }
-
-
-    /**
-      * Sets the value of the 'customerAddress' field.
-      * @param value The value of 'customerAddress'.
-      * @return This builder.
-      */
-    public com.fmattaperdomo.kafka.order.avro.model.CustomerAvroModel.Builder setCustomerAddress(com.fmattaperdomo.kafka.order.avro.model.CustomerAddress value) {
-      validate(fields()[7], value);
-      this.customerAddressBuilder = null;
-      this.customerAddress = value;
-      fieldSetFlags()[7] = true;
-      return this;
-    }
-
-    /**
-      * Checks whether the 'customerAddress' field has been set.
-      * @return True if the 'customerAddress' field has been set, false otherwise.
-      */
-    public boolean hasCustomerAddress() {
-      return fieldSetFlags()[7];
-    }
-
-    /**
-     * Gets the Builder instance for the 'customerAddress' field and creates one if it doesn't exist yet.
-     * @return This builder.
-     */
-    public com.fmattaperdomo.kafka.order.avro.model.CustomerAddress.Builder getCustomerAddressBuilder() {
-      if (customerAddressBuilder == null) {
-        if (hasCustomerAddress()) {
-          setCustomerAddressBuilder(com.fmattaperdomo.kafka.order.avro.model.CustomerAddress.newBuilder(customerAddress));
-        } else {
-          setCustomerAddressBuilder(com.fmattaperdomo.kafka.order.avro.model.CustomerAddress.newBuilder());
-        }
-      }
-      return customerAddressBuilder;
-    }
-
-    /**
-     * Sets the Builder instance for the 'customerAddress' field
-     * @param value The builder instance that must be set.
-     * @return This builder.
-     */
-
-    public com.fmattaperdomo.kafka.order.avro.model.CustomerAvroModel.Builder setCustomerAddressBuilder(com.fmattaperdomo.kafka.order.avro.model.CustomerAddress.Builder value) {
-      clearCustomerAddress();
-      customerAddressBuilder = value;
-      return this;
-    }
-
-    /**
-     * Checks whether the 'customerAddress' field has an active Builder instance
-     * @return True if the 'customerAddress' field has an active Builder instance
-     */
-    public boolean hasCustomerAddressBuilder() {
-      return customerAddressBuilder != null;
-    }
-
-    /**
-      * Clears the value of the 'customerAddress' field.
-      * @return This builder.
-      */
-    public com.fmattaperdomo.kafka.order.avro.model.CustomerAvroModel.Builder clearCustomerAddress() {
-      customerAddress = null;
-      customerAddressBuilder = null;
       fieldSetFlags()[7] = false;
-      return this;
-    }
-
-    /**
-      * Gets the value of the 'createdAt' field.
-      * @return The value.
-      */
-    public java.time.Instant getCreatedAt() {
-      return createdAt;
-    }
-
-
-    /**
-      * Sets the value of the 'createdAt' field.
-      * @param value The value of 'createdAt'.
-      * @return This builder.
-      */
-    public com.fmattaperdomo.kafka.order.avro.model.CustomerAvroModel.Builder setCreatedAt(java.time.Instant value) {
-      validate(fields()[8], value);
-      this.createdAt = value.truncatedTo(java.time.temporal.ChronoUnit.MILLIS);
-      fieldSetFlags()[8] = true;
-      return this;
-    }
-
-    /**
-      * Checks whether the 'createdAt' field has been set.
-      * @return True if the 'createdAt' field has been set, false otherwise.
-      */
-    public boolean hasCreatedAt() {
-      return fieldSetFlags()[8];
-    }
-
-
-    /**
-      * Clears the value of the 'createdAt' field.
-      * @return This builder.
-      */
-    public com.fmattaperdomo.kafka.order.avro.model.CustomerAvroModel.Builder clearCreatedAt() {
-      fieldSetFlags()[8] = false;
-      return this;
-    }
-
-    /**
-      * Gets the value of the 'updatedAt' field.
-      * @return The value.
-      */
-    public java.time.Instant getUpdatedAt() {
-      return updatedAt;
-    }
-
-
-    /**
-      * Sets the value of the 'updatedAt' field.
-      * @param value The value of 'updatedAt'.
-      * @return This builder.
-      */
-    public com.fmattaperdomo.kafka.order.avro.model.CustomerAvroModel.Builder setUpdatedAt(java.time.Instant value) {
-      validate(fields()[9], value);
-      this.updatedAt = value.truncatedTo(java.time.temporal.ChronoUnit.MILLIS);
-      fieldSetFlags()[9] = true;
-      return this;
-    }
-
-    /**
-      * Checks whether the 'updatedAt' field has been set.
-      * @return True if the 'updatedAt' field has been set, false otherwise.
-      */
-    public boolean hasUpdatedAt() {
-      return fieldSetFlags()[9];
-    }
-
-
-    /**
-      * Clears the value of the 'updatedAt' field.
-      * @return This builder.
-      */
-    public com.fmattaperdomo.kafka.order.avro.model.CustomerAvroModel.Builder clearUpdatedAt() {
-      fieldSetFlags()[9] = false;
       return this;
     }
 
@@ -991,33 +746,13 @@ public class CustomerAvroModel extends org.apache.avro.specific.SpecificRecordBa
       try {
         CustomerAvroModel record = new CustomerAvroModel();
         record.id = fieldSetFlags()[0] ? this.id : (java.lang.String) defaultValue(fields()[0]);
-        if (customerDocumentBuilder != null) {
-          try {
-            record.customerDocument = this.customerDocumentBuilder.build();
-          } catch (org.apache.avro.AvroMissingFieldException e) {
-            e.addParentField(record.getSchema().getField("customerDocument"));
-            throw e;
-          }
-        } else {
-          record.customerDocument = fieldSetFlags()[1] ? this.customerDocument : (com.fmattaperdomo.kafka.order.avro.model.CustomerDocument) defaultValue(fields()[1]);
-        }
-        record.firstName = fieldSetFlags()[2] ? this.firstName : (java.lang.String) defaultValue(fields()[2]);
-        record.lastName = fieldSetFlags()[3] ? this.lastName : (java.lang.String) defaultValue(fields()[3]);
-        record.email = fieldSetFlags()[4] ? this.email : (java.lang.String) defaultValue(fields()[4]);
-        record.phone = fieldSetFlags()[5] ? this.phone : (java.lang.String) defaultValue(fields()[5]);
-        record.userRole = fieldSetFlags()[6] ? this.userRole : (com.fmattaperdomo.kafka.order.avro.model.UserRole) defaultValue(fields()[6]);
-        if (customerAddressBuilder != null) {
-          try {
-            record.customerAddress = this.customerAddressBuilder.build();
-          } catch (org.apache.avro.AvroMissingFieldException e) {
-            e.addParentField(record.getSchema().getField("customerAddress"));
-            throw e;
-          }
-        } else {
-          record.customerAddress = fieldSetFlags()[7] ? this.customerAddress : (com.fmattaperdomo.kafka.order.avro.model.CustomerAddress) defaultValue(fields()[7]);
-        }
-        record.createdAt = fieldSetFlags()[8] ? this.createdAt : (java.time.Instant) defaultValue(fields()[8]);
-        record.updatedAt = fieldSetFlags()[9] ? this.updatedAt : (java.time.Instant) defaultValue(fields()[9]);
+        record.typeIdentification = fieldSetFlags()[1] ? this.typeIdentification : (java.lang.String) defaultValue(fields()[1]);
+        record.documentNumber = fieldSetFlags()[2] ? this.documentNumber : (java.lang.String) defaultValue(fields()[2]);
+        record.firstName = fieldSetFlags()[3] ? this.firstName : (java.lang.String) defaultValue(fields()[3]);
+        record.lastName = fieldSetFlags()[4] ? this.lastName : (java.lang.String) defaultValue(fields()[4]);
+        record.email = fieldSetFlags()[5] ? this.email : (java.lang.String) defaultValue(fields()[5]);
+        record.phone = fieldSetFlags()[6] ? this.phone : (java.lang.String) defaultValue(fields()[6]);
+        record.userRole = fieldSetFlags()[7] ? this.userRole : (java.lang.String) defaultValue(fields()[7]);
         return record;
       } catch (org.apache.avro.AvroMissingFieldException e) {
         throw e;
@@ -1045,6 +780,91 @@ public class CustomerAvroModel extends org.apache.avro.specific.SpecificRecordBa
     READER$.read(this, SpecificData.getDecoder(in));
   }
 
+  @Override protected boolean hasCustomCoders() { return true; }
+
+  @Override public void customEncode(org.apache.avro.io.Encoder out)
+    throws java.io.IOException
+  {
+    out.writeString(this.id);
+
+    out.writeString(this.typeIdentification);
+
+    out.writeString(this.documentNumber);
+
+    out.writeString(this.firstName);
+
+    out.writeString(this.lastName);
+
+    out.writeString(this.email);
+
+    out.writeString(this.phone);
+
+    out.writeString(this.userRole);
+
+  }
+
+  @Override public void customDecode(org.apache.avro.io.ResolvingDecoder in)
+    throws java.io.IOException
+  {
+    org.apache.avro.Schema.Field[] fieldOrder = in.readFieldOrderIfDiff();
+    if (fieldOrder == null) {
+      this.id = in.readString();
+
+      this.typeIdentification = in.readString();
+
+      this.documentNumber = in.readString();
+
+      this.firstName = in.readString();
+
+      this.lastName = in.readString();
+
+      this.email = in.readString();
+
+      this.phone = in.readString();
+
+      this.userRole = in.readString();
+
+    } else {
+      for (int i = 0; i < 8; i++) {
+        switch (fieldOrder[i].pos()) {
+        case 0:
+          this.id = in.readString();
+          break;
+
+        case 1:
+          this.typeIdentification = in.readString();
+          break;
+
+        case 2:
+          this.documentNumber = in.readString();
+          break;
+
+        case 3:
+          this.firstName = in.readString();
+          break;
+
+        case 4:
+          this.lastName = in.readString();
+          break;
+
+        case 5:
+          this.email = in.readString();
+          break;
+
+        case 6:
+          this.phone = in.readString();
+          break;
+
+        case 7:
+          this.userRole = in.readString();
+          break;
+
+        default:
+          throw new java.io.IOException("Corrupt ResolvingDecoder.");
+        }
+      }
+    }
+  }
 }
 
 

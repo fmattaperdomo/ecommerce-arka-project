@@ -1,6 +1,6 @@
 package com.fmattaperdomo.store.service.dataaccess.store.adapter;
 
-import com.fmattaperdomo.dataaccess.store.entity.StoreEntity;
+import com.fmattaperdomo.dataaccess.store.entity.ProductStoreEntity;
 import com.fmattaperdomo.dataaccess.store.repository.StoreJpaRepository;
 import com.fmattaperdomo.store.service.dataaccess.store.mapper.StoreDataAccessMapper;
 import com.fmattaperdomo.store.service.domain.entity.Store;
@@ -27,7 +27,7 @@ public class StoreRepositoryImpl implements StoreRepository{
     public Optional<Store> findStoreInformation(Store store) {
         List<UUID> productsStore =
                 storeDataAccessMapper.storeToProductsStore(store);
-        Optional<List<StoreEntity>> storeEntities = storeJpaRepository
+        Optional<List<ProductStoreEntity>> storeEntities = storeJpaRepository
                 .findByStoreIdAndProductStoreIdIn(store.getId().getValue(),
                         productsStore);
         return storeEntities.map(storeDataAccessMapper::storeEntityToStore);

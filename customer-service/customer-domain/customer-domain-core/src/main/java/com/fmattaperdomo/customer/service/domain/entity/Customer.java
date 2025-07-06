@@ -1,39 +1,37 @@
 package com.fmattaperdomo.customer.service.domain.entity;
 
 import com.fmattaperdomo.domain.entity.AggregateRoot;
-import com.fmattaperdomo.domain.valueobject.Address;
 import com.fmattaperdomo.domain.valueobject.CustomerId;
-import com.fmattaperdomo.domain.valueobject.Identification;
+import com.fmattaperdomo.domain.valueobject.TypeIdentification;
 import com.fmattaperdomo.domain.valueobject.UserRole;
 
-import java.time.LocalDateTime;
 
 public class Customer extends AggregateRoot<CustomerId> {
-    private final Identification identification;
+    private final TypeIdentification typeIdentification;
+    private final String documentNumber;
     private final String firstName;
     private final String lastName;
     private final String email;
     private final String phone;
-    private final UserRole role;
-    private final Address address;
-    private final LocalDateTime createdAt;
-    private final LocalDateTime updatedAt;
+    private final UserRole userRole;
 
-    public Customer(CustomerId customerId, Identification identification, String firstName, String lastName, String email, String phone, UserRole role, Address address) {
+    public Customer(CustomerId customerId, TypeIdentification typeIdentification, String documentNumber, String firstName, String lastName, String email, String phone, UserRole userRole) {
         this.setId(customerId);
-        this.identification = identification;
+        this.typeIdentification = typeIdentification;
+        this.documentNumber = documentNumber;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.phone = phone;
-        this.role = role;
-        this.address = address;
-        this.createdAt = LocalDateTime.now();
-        this.updatedAt = LocalDateTime.now();
+        this.userRole = userRole;
     }
 
-    public Identification getIdentification() {
-        return identification;
+    public TypeIdentification getTypeIdentification() {
+        return typeIdentification;
+    }
+
+    public String getDocumentNumber() {
+        return documentNumber;
     }
 
     public String getFirstName() {
@@ -52,21 +50,7 @@ public class Customer extends AggregateRoot<CustomerId> {
         return phone;
     }
 
-    public UserRole getRole() {
-        return role;
-    }
-
-    public Address getAddress() {
-        return address;
-    }
-
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
-    }
-
-    public LocalDateTime getUpdatedAt() {
-        return updatedAt;
+    public UserRole getUserRole() {
+        return userRole;
     }
 }
-
-
