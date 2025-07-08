@@ -1,0 +1,67 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ecommerce-arka-project-storeservice
+  labels:
+    
+    ecommerce-arka-project.io/name: ecommerce-arka-project-storeservice
+    app.kubernetes.io/instance: ecommerce-arka-project
+    app.kubernetes.io/component: storeservice
+    app.kubernetes.io/name: ecommerce-arka-project-storeservice
+    app.kubernetes.io/version: "1.12.0"
+    app.kubernetes.io/part-of: ecommerce-arka-project
+spec:
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      
+      ecommerce-arka-project.io/name: ecommerce-arka-project-storeservice
+  template:
+    metadata:
+      labels:
+        
+        ecommerce-arka-project.io/name: ecommerce-arka-project-storeservice
+        app.kubernetes.io/instance: ecommerce-arka-project
+        app.kubernetes.io/component: storeservice
+        app.kubernetes.io/name: ecommerce-arka-project-storeservice
+    spec:
+      serviceAccountName: ecommerce-arka-project
+      containers:
+        - name: storeservice
+          image: 'ghcr.io/ecommerce-arka-project:1.12.0-storeservice'
+          imagePullPolicy: IfNotPresent
+          ports:
+            
+            - containerPort: 8080
+              name: service
+          env:
+            - name: EAP_SERVICE_NAME
+              valueFrom:
+                fieldRef:
+                  apiVersion: v1
+                  fieldPath: metadata.labels['app.kubernetes.io/component']
+            - name: EAP_COLLECTOR_NAME
+              value: 'ecommerce-arka-project-otelcol'
+            - name: EAP_EXPORTER_OTLP_METRICS_TEMPORALITY_PREFERENCE
+              value: cumulative
+            - name: STORE_SERVICE_PORT
+              value: "8080"
+            - name: FLAGD_HOST
+              value: 'ecommerce-arka-project-flagd'
+            - name: FLAGD_PORT
+              value: "8013"
+            - name: EAP_EXPORTER_OTLP_ENDPOINT
+              value: http://$(EAP_COLLECTOR_NAME):4317
+            - name: EAP_RESOURCE_ATTRIBUTES
+              value: service.name=$(EAP_SERVICE_NAME),service.namespace=ecommerce-arka-project,service.version=1.12.0
+          resources:
+            limits:
+              memory: 120Mi
+          securityContext:
+            runAsGroup: 1000
+            runAsNonRoot: true
+            runAsUser: 1000
+          volumeMounts:
+      volumes:
