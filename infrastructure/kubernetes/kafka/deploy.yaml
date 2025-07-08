@@ -30,7 +30,7 @@ spec:
       serviceAccountName: ecommerce-arka-project
       containers:
         - name: kafka
-          image: 'ghcr.io/ecommerce-arka-project:1.12.0-kafka'
+          image: 'fmattaperdomo/ecommerce-arka-project:1.12.0-kafka'
           imagePullPolicy: IfNotPresent
           ports:
             

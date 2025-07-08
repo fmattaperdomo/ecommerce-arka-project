@@ -30,7 +30,7 @@ spec:
       serviceAccountName: ecommerce-arka-project
       containers:
         - name: customerservice
-          image: 'ghcr.io/ecommerce-arka-project:1.12.0-customerservice'
+          image: 'fmattaperdomo/ecommerce-arka-project:1.12.0-customerservice'
           imagePullPolicy: IfNotPresent
           ports:
             

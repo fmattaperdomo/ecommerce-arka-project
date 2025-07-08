@@ -30,7 +30,7 @@ spec:
       serviceAccountName: ecommerce-arka-project
       containers:
         - name: paymentservice
-          image: 'ghcr.io/ecommerce-arka-project:1.12.0-paymentservice'
+          image: 'fmattaperdomo/ecommerce-arka-project:1.12.0-paymentservice'
           imagePullPolicy: IfNotPresent
           ports:
             
